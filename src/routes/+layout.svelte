@@ -38,5 +38,10 @@
     text-align: center;
     display: block;
   }
+
+  /* card */
+
 </style>
 <slot></slot>
+
+
