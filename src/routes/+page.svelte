@@ -1,23 +1,48 @@
 <script>
   import BookCard from "../components/BookCard.svelte";
   import News from "../components/News.svelte";
+  import Mainprofile from "../components/Mainprofile.svelte";
+  import Button from "../components/Button.svelte";
 
     let books = [
     {
       title: "The Great Gatsby",
       author: "F. Scott Fitzgerald",
-      coverImage: "",
+      coverImage: "a",
     },
     {
       title: "1984",
       author: "George Orwell",
-      coverImage: "",
+      coverImage: "a",
     }
   ];
+
+  let profiles = [
+    {
+      name: "Mukanov Amir",
+      read: "12",
+      photo: "burger.png",
+    }
+  ];
+
+  let buttons = [
+    {
+      label: "go",
+    }
+  ]
 </script>
 
 <div class="container">
   <News/>
+  <div class="profile-container">
+    {#each profiles as profile}
+      <Mainprofile 
+        name={profile.name} 
+        read={profile.read} 
+        photo={profile.photo} 
+      />
+    {/each}
+  </div>  
   <div class="card-container">
     {#each books as book}
       <BookCard 
@@ -26,16 +51,28 @@
         coverImage={book.coverImage} 
       />
     {/each}
+    {#each buttons as button}
+      <Button 
+        label={button.label} 
+      />
+    {/each}
   </div>
 </div>
 
 <style>
   .container{
     margin-left: 10%;
+    margin-right: 10%;
   }
   .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
+  .profile-container{
+    display: flex;
+    justify-content: end;
+  }
 </style>
+
+
