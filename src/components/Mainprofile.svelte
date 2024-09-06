@@ -1,12 +1,29 @@
 <script>
+    import Button from "./Button.svelte";
     export let photo = "";
     export let read = "";
     export let name = "";
+    
+    let buttons = [
+    {
+      label: "go",
+    }
+  ]
 </script>  
+
+
 
 <div class="container">
     <div class="wrapper">
-        <img src="{photo}" alt="photoava">
+        <div class="ava_btn">
+            <img src="{photo}" alt="photoava" class="photo">
+                {#each buttons as button}
+                <Button 
+                    label={button.label} 
+                    btn_width = {button.btn_width}
+                />
+            {/each}
+        </div>
         <div class="description">
             <h3>{name}</h3>
             <p>{read}</p>
@@ -20,9 +37,23 @@
         height: 200px;
         background-color: antiquewhite;
         border-radius: 20px;
+        
     }
     .wrapper{
         display: flex;
         margin: 15px;
+        align-items: center;
     }
+    .ava_btn{
+        display: block;
+        width: 130px;
+        margin-right: 50px;
+
+    }
+    .photo{
+        object-fit: cover;
+        border-radius: 100%;
+        width: 130px;
+    }
+    
 </style>

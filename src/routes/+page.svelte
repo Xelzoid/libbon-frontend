@@ -21,13 +21,13 @@
     {
       name: "Mukanov Amir",
       read: "12",
-      photo: "burger.png",
+      photo: "",
     }
   ];
 
   let buttons = [
     {
-      label: "go",
+      label: "click me",
     }
   ]
 </script>
