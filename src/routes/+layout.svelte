@@ -3,22 +3,22 @@
 </nav>
 <li>
   <a href="/">home</a>
-	<a href="/about">profile</a>
-	<a href="/settings">social</a>
-  <a href="/settings">books</a>
-  <a href="/settings">games</a>
+	<a href="/profile">profile</a>
+	<a href="/social">social</a>
+  <a href="/books">books</a>
+  <a href="/games">games</a>
 </li>
 
 
 <style>
   li {
-    margin: 0;
     list-style-type: none;
     width: 7%;
     height: 100%;
     min-width: 100px;
     padding-right: 10px;
     border-right: 1px solid black;
+    position: fixed;
   }
   li a {
     display: block;
