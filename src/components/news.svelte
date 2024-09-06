@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
+  // @ts-ignore
   let news = [];
+  // @ts-ignore
   let error = null;
 
   onMount(async () => {
@@ -11,6 +13,7 @@
           }
           news = await response.json();
       } catch (err) {
+          // @ts-ignore
           error = err.message;
       }
   });
