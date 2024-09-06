@@ -3,6 +3,14 @@
   import News from "../components/News.svelte";
   import Mainprofile from "../components/Mainprofile.svelte";
   import Button from "../components/Button.svelte";
+  import Bookprivate from "../components/Bookprivate.svelte";
+    
+    let books_private = [{
+        name: "bool",
+        author: "Bil",
+        description: "bil's book",
+    }]
+    
 
     let books = [
     {
@@ -54,6 +62,13 @@
     {#each buttons as button}
       <Button 
         label={button.label} 
+      />
+    {/each}
+    {#each books_private as bookpr}
+      <Bookprivate 
+        name={bookpr.name} 
+        author={bookpr.author} 
+        description={bookpr.description} 
       />
     {/each}
   </div>
