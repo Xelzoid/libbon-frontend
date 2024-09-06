@@ -17,6 +17,11 @@
   .card_container{
     width: 200px;
     height: 300px;
+
+  }
+  .card_image{
+    width: 150px;
+    height: 150px;
     
   }
 </style>
