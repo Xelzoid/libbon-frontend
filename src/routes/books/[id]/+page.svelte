@@ -3,19 +3,14 @@
   import { onMount } from "svelte";
   import Bookprivate from "../../../components/Bookprivate.svelte";
   import Comment from "../../../components/Comment.svelte";
-
+  import GetBook from "../../../components/GetBook.svelte";
+  import RemoveBook from "../../../components/RemoveBook.svelte";
   // @ts-ignore
-  let news = [];
-  // @ts-ignore
-  let error = null;
-  let book;
-  let showCommentForm = false;
-  let newComment = '';
-  let comments = []; 
+  let error = null, book, showCommentForm = false, newComment = '', comments = [], isBookInLibrary = false;
 
   onMount(async () => {
     try {
-      const response = await fetch("http://localhost:8000/news");
+      const response = await fetch("http://localhost:8000/news"); //get book from db !!!!!!!!!!! change to correct api
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -26,12 +21,13 @@
     }
   });
 
-  book = {title:"Book's Title", author:"Author", description:"Description", photo:""};
+  book = {id: '0', title:"Book's Title", author:"Author", description:"Description", photo:""};
 
   function addComment() {
     if (newComment.trim() === '') {
       return; 
     }
+    // @ts-ignore
     comments = [...comments, { id: Date.now(), text: newComment }];
     newComment = ''; 
     showCommentForm = false; 
@@ -47,6 +43,11 @@
     description={book.description}
     photo={book.photo}
   />
+  {#if isBookInLibrary}
+    <RemoveBook bookId={book.id}/>
+  {:else}
+   <GetBook bookId={book.id}/>
+  {/if}
   
   <button on:click={() => showCommentForm = !showCommentForm}>
     {showCommentForm ? 'Отмена' : 'Оставить Отзыв '}

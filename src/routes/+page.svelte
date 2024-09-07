@@ -25,6 +25,7 @@
       name: "Mukanov Amir",
       read: "12",
       photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
+      id: '0'
     };
   onMount(async () => {
     try {
@@ -37,6 +38,9 @@
       // @ts-ignore
       error = err.message;
     }
+    const response = await fetch(`/api/get_user_library?user_id=${user.id}`);
+    const data = await response.json();
+    books = data.books;
   });
 </script>
 
@@ -76,7 +80,4 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-
 </style>
-
-
