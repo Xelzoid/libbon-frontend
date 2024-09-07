@@ -1,9 +1,27 @@
+<script>
+  import { onMount } from "svelte";
+  let user, error = null;
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/users/me");
+      if (!response.ok) {
+          throw new Error("Failed to fetch user info");
+      }
+      user = await response.json();
+    } catch (err) {
+      // @ts-ignore
+      error = err.message;
+    }
+  });
+  
+</script>
+
 <nav>
   <h1>LIBBON</h1>
 </nav>
 <li>
   <a href="/">home</a>
-	<a href="/profile">profile</a>
+	<a href="/profile/{user.friend_id}"">profile</a>
 	<a href="/social">social</a>
   <a href="/books">books</a>
   <a href="/games">games</a>
@@ -39,7 +57,6 @@
     display: block;
   }
 
-  /* card */
 
 </style>
 <slot></slot>

@@ -1,20 +1,21 @@
 <script>
   // @ts-ignore
-  import BookCard from "../../components/BookCard.svelte";
+  import BookCard from "../../../components/BookCard.svelte";
   // @ts-ignore
-  import Mainprofile from "../../components/Mainprofile.svelte";
+  import Mainprofile from "../../../components/Mainprofile.svelte";
   // @ts-ignore
-  import Button from "../../components/Button.svelte";
+  import Button from "../../../components/Button.svelte";
+  import ClubCard from "../../../components/ClubCard.svelte";
   // @ts-ignore
   import { onMount } from "svelte";
   // @ts-ignore
-  let books = [], user, error = null;
+  let user, friends = [], clubs = [], error = null;
   // @ts-ignore
   onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");
       if (!response.ok) {
-          throw new Error("Failed to fetch data");
+          throw new Error("Failed to fetch user info");
       }
       user = await response.json();
     } catch (err) {
@@ -22,15 +23,86 @@
       error = err.message;
     }
   });
+  user = {
+    id: 0,
+    name: 'Zangar',
+    booksread: 12,
+    books: [],
+    friends: [],
+    clubs: []
+  }
+  onMount(async () => {
+    for (let friend of user.friends) {
+      try {
+        const response = await fetch("http://localhost:8000/api/users/124462");
+        if (!response.ok) {
+            throw new Error("Failed to fetch friend");
+        }
+        friend = await response.json();
+        friends.push(friend);
+      } catch (err) {
+        // @ts-ignore
+        error = err.message;
+      }
+    };
+    for (let club of user.clubs) {
+      try {
+        const response = await fetch("http://localhost:8000/api/club/124462");
+        if (!response.ok) {
+            throw new Error("Failed to fetch club");
+        }
+        club = await response.json();
+        clubs.push(club);
+      } catch (err) {
+        // @ts-ignore
+        error = err.message;
+      }
+    };
+  });
+
   </script>
   
   <div class="container">
     <div class="profile-container">
       <Mainprofile 
         name={user.name} 
-        read={user.read} 
+        read={user.boooksread} 
         photo={user.photo} 
       />
+    </div>
+
+    <div class="button-container">
+      <Button label="Books"/>
+      <Button label="Friends"/>
+      <Button label="Clubs"/>
+    </div>
+    <div class="gr-container">
+      {#each user.books as book} 
+        <BookCard 
+          title={book.title} 
+          author={book.author} 
+          coverImage={book.coverImage} 
+        />
+      {/each}
+    </div>
+
+    <div class="gr-container">
+      {#each friends as friend} 
+        <Mainprofile 
+          name={friend.name} 
+          read={friend.read} 
+          photo={friend.coverImage} 
+        />
+      {/each}
+    </div>
+    <div class="gr-container">
+      {#each clubs as club} 
+        <ClubCard 
+          name={club.name} 
+          membercount={club.member} 
+          photo={club.photo} 
+        />
+      {/each}
     </div>
   </div>
   
@@ -38,15 +110,23 @@
     .container{
       margin-left: 10%;
       margin-right: 10%;
+      margin-top: 20px;
     }
-    .card-container {
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .gr-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      gap: 16px;
+      padding: 16px;
     }
     .profile-container{
       display: flex;
-      justify-content: end;
+      justify-content: center;
     }
   </style>
   
