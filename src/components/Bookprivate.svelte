@@ -1,24 +1,4 @@
 <script>
-
-    import { onMount } from "svelte";
-    // @ts-ignore
-    let news = [];
-    // @ts-ignore
-    let error = null;
-
-    onMount(async () => {
-        try {
-            const response = await fetch("http://localhost:8000/news");
-            if (!response.ok) {
-                throw new Error("Failed to fetch data");
-            }
-            news = await response.json();
-        } catch (err) {
-            // @ts-ignore
-            error = err.message;
-        }
-    });
-
     export let name = "";
     export let author = "";
     export let description = "";
@@ -42,7 +22,7 @@
         margin-top: 5%;
     }
     .content{
-        margin-left: 80px;
+        margin-left: 15%;
     }
     .book_img{
         height: 400px;
