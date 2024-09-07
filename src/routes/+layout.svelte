@@ -21,7 +21,6 @@
 </nav>
 <li>
   <a href="/">home</a>
-	<a href="/profile/{user.friend_id}"">profile</a>
 	<a href="/social">social</a>
   <a href="/books">books</a>
   <a href="/games">games</a>
