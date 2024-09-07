@@ -129,6 +129,3 @@
       justify-content: center;
     }
   </style>
-  
-  
-  

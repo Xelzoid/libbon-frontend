@@ -6,18 +6,7 @@
   import Mainprofile from "../components/Mainprofile.svelte";
   import Button from "../components/Button.svelte";
   import { onMount } from "svelte";
-  //   let books = [
-  //   {
-  //     title: "The Great Gatsby",
-  //     author: "F. Scott Fitzgerald",
-  //     coverImage: "",
-  //   },
-  //   {
-  //     title: "1984",
-  //     author: "George Orwell",
-  //     coverImage: "",
-  //   }
-  // ];
+
     let books = [
     {
       title: "The Great Gatsby",
@@ -37,7 +26,6 @@
       read: "12",
       photo: "",
     };
-
   onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");
@@ -54,7 +42,6 @@
 
 <div class="container">
   <Search/>
-  <News/>
   <hero>
     <News/>
     <Mainprofile 
@@ -66,9 +53,9 @@
   <div class="card-container">
     {#each books as book}
       <BookCard 
-        title={book.title} 
-        author={book.author} 
-        coverImage={book.coverImage} 
+        title={book.title}
+        author={book.author}
+        coverImage={book.coverImage}
       />
     {/each}
   </div>
@@ -91,6 +78,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
 </style>
 
 
