@@ -41,7 +41,6 @@
 </script>
 
 <div class="container">
-  <Search/>
   <hero>
     <News/>
     <Mainprofile 
@@ -59,7 +58,6 @@
       />
     {/each}
   </div>
-  <Catalog/>
 </div>
 
 <style>

@@ -18,49 +18,64 @@
   let profileUrl = `/profile/${user.friend_id}`;
 </script>
 
-<nav>
-  <h1>LIBBON</h1>
-</nav>
-<li>
-  <a href="/">home</a>
-	<a href={profileUrl}>profile</a>
-	<a href="/social">social</a>
-  <a href="/catalog/1">books</a>
-  <a href="/games">games</a>
-</li>
-
-
+<div class="header">
+  <nav>
+    <h1>LIBOn</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href={profileUrl}>Profile</a></li>
+      <li><a href="/social">Social</a></li>
+      <li><a href="/catalog/1">Books</a></li>
+      <li><a href="/games">Games</a></li>
+    </ul>
+  </nav>
+</div>
 <style>
-  li {
-    list-style-type: none;
-    width: 7%;
-    height: 100%;
-    min-width: 100px;
-    padding-right: 10px;
-    border-right: 1px solid black;
-    position: fixed;
+  .header{
+    width: 100%;
+    background-color: #D9D9D9;
+    margin: 0;
+    padding: 0;
   }
+  nav {
+    display: flex;
+    width: 1100px;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
+
+  nav h1 {
+    text-align: center;
+    margin: 0;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    
+  }
+
+  li {
+    margin: 0 16px; 
+  }
+
   li a {
     display: block;
     text-decoration: none;
-    margin-top: 15px;
-    padding: 35px 8px;
+    padding: 15px 20px;
     text-align: center;
     background-color: #D9D9D9;
     color: black;
     border-radius: 15px;
-  }
-  nav {
-    border-bottom: 1px solid black;
-    width: 100%;
-  }
-  nav h1 {
-    text-align: center;
-    display: block;
+    transition: background-color 0.3s;
   }
 
-
+  li a:hover {
+    background-color: #b0b0b0; /* Цвет фона при наведении */
+  }
 </style>
+
 <slot></slot>
 
 
