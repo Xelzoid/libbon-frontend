@@ -1,6 +1,8 @@
 <script>
   import BookCard from "../components/BookCard.svelte";
+	import Catalog from "../components/Catalog.svelte";
   import News from "../components/News.svelte";
+	import Search from "../components/Search.svelte";
   import Mainprofile from "../components/Mainprofile.svelte";
   import Button from "../components/Button.svelte";
   import { onMount } from "svelte";
@@ -16,6 +18,18 @@
   //     coverImage: "",
   //   }
   // ];
+    let books = [
+    {
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      coverImage: "",
+    },
+    {
+      title: "1984",
+      author: "George Orwell",
+      coverImage: "",
+    }
+  ];
 
   let user = 
     {
@@ -38,6 +52,8 @@
 </script>
 
 <div class="container">
+  <Search/>
+  <News/>
   <hero>
     <News/>
     <Mainprofile 
@@ -55,6 +71,7 @@
       />
     {/each}
   </div>
+  <Catalog/>
 </div>
 
 <style>
