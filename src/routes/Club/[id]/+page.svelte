@@ -1,7 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import Bookprivate from "../../../components/Club.svelte";
-    import BookCard from "../../../components/ClubCard.svelte";
+    import Club from "../../../components/Club.svelte";
 
     let error = null;
 
@@ -19,7 +18,7 @@
     let book = { title: "Ghbajdoiajd", author: "adasdasd", description: "asdsadadad", photo: "" };
 </script>
 
-<Bookprivate
+<Club
     name={book.title}
     description={book.description}
     photo={book.photo}

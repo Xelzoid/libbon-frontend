@@ -1,5 +1,6 @@
 <script>
   // @ts-ignore
+  import { goto } from '$app/navigation'; 
   import { onMount } from "svelte";
   let number = '', email = '', password = '', name = '', surname = '', date_of_birth = '', error = null;
   // @ts-ignore
@@ -62,6 +63,9 @@
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.detail);
+      }
+      else {
+        goto("/login")
       }
     }
     catch (err) {
