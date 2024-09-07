@@ -30,6 +30,9 @@
     text-decoration: none;
     color: black;
     transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   .card_container:hover{
     transform: translatey(-14px);

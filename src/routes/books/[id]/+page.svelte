@@ -47,6 +47,7 @@
     description={book.description}
     photo={book.photo}
   />
+  
   <button on:click={() => showCommentForm = !showCommentForm}>
     {showCommentForm ? 'Отмена' : 'Оставить Отзыв '}
   </button>
