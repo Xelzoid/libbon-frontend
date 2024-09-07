@@ -4,11 +4,9 @@
     export let read = "";
     export let name = "";
     
-    let buttons = [
-    {
+    let button = {
       label: "go",
     }
-  ]
 </script>  
 
 
@@ -17,15 +15,13 @@
     <div class="wrapper">
         <div class="ava_btn">
             <img src="{photo}" alt="photoava" class="photo">
-                {#each buttons as button}
                 <Button 
-                    label={button.label} 
+                    label={button.label}
                 />
-            {/each}
         </div>
         <div class="description">
             <h3>{name}</h3>
-            <p>{read}</p>
+            <p>Reading: {read}</p>
         </div>
     </div>
 </div>

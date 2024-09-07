@@ -1,16 +1,11 @@
 <script>
   import BookCard from "../components/BookCard.svelte";
+	import Catalog from "../components/Catalog.svelte";
   import News from "../components/News.svelte";
+	import Search from "../components/Search.svelte";
   import Mainprofile from "../components/Mainprofile.svelte";
   import Button from "../components/Button.svelte";
-  import Bookprivate from "../components/Bookprivate.svelte";
-    
-    let books_private = [{
-        name: "bool",
-        author: "Bil",
-        description: "bil's book",
-    }]
-    
+  import { onMount } from "svelte";
 
     let books = [
     {
@@ -31,15 +26,22 @@
       read: "12",
       photo: "",
     };
-
-  let buttons = [
-    {
-      label: "click me",
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/users/me");
+      if (!response.ok) {
+          throw new Error("Failed to fetch user info");
+      }
+      user = await response.json();
+    } catch (err) {
+      // @ts-ignore
+      error = err.message;
     }
-  ]
+  });
 </script>
 
 <div class="container">
+  <Search/>
   <hero>
     <News/>
     <Mainprofile 
@@ -51,12 +53,13 @@
   <div class="card-container">
     {#each books as book}
       <BookCard 
-        title={book.title} 
-        author={book.author} 
-        coverImage={book.coverImage} 
+        title={book.title}
+        author={book.author}
+        coverImage={book.coverImage}
       />
     {/each}
   </div>
+  <Catalog/>
 </div>
 
 <style>

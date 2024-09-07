@@ -35,9 +35,5 @@
 <style>
   .news {
     display: flex;
-    flex-direction: column;
-  }
-  ul {
-    
   }
 </style>
