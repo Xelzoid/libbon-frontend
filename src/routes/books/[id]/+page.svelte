@@ -1,9 +1,8 @@
-
 <script>
   import { onMount } from "svelte";
   import Bookprivate from "../../../components/Bookprivate.svelte";
   import Comment from "../../../components/Comment.svelte";
-  import GetBook from "../../../components/GetBook.svelte";
+  import AddBook from "../../../components/AddBook.svelte";
   import RemoveBook from "../../../components/RemoveBook.svelte";
   // @ts-ignore
   let error = null, book, showCommentForm = false, newComment = '', comments = [], isBookInLibrary = false;
@@ -35,7 +34,7 @@
 </script>
 
 <div class="container">
-  
+
 
   <Bookprivate
     name={book.title}
@@ -46,7 +45,7 @@
   {#if isBookInLibrary}
     <RemoveBook bookId={book.id}/>
   {:else}
-   <GetBook bookId={book.id}/>
+   <AddBook bookId={book.id}/>
   {/if}
   
   <button on:click={() => showCommentForm = !showCommentForm}>
@@ -60,7 +59,7 @@
   {/if}
   {#each comments as { id, text }}
     <Comment text={text} />
-  {/each}  
+  {/each}
 </div>
 
 <style>

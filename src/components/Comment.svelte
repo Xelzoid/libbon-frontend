@@ -16,7 +16,7 @@
       error = err.message;
     }
   });
-  user = { name:"Amir"};
+  user = { name:"User"};
 </script>
 
 <div class="container">

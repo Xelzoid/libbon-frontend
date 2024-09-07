@@ -1,7 +1,5 @@
-
-
 <script>
-  
+
   export let title = '';
   export let author = '';
   export let coverImage = '';
@@ -16,8 +14,6 @@
     <p class="author">{author}</p>
   </div>
 </a>
-
-
 <style>
   .card_container{
     cursor: pointer;
