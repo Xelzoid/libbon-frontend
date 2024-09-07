@@ -26,7 +26,7 @@
       <li><a href={profileUrl}>Profile</a></li>
       <li><a href="/social">Social</a></li>
       <li><a href="/catalog/1">Books</a></li>
-      <li><a href="/games">Games</a></li>
+      <li><a href="/game/0">Games</a></li>
     </ul>
   </nav>
 </div>

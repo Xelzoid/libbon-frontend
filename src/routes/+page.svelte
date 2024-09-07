@@ -1,18 +1,16 @@
 <script>
   import CardBook from "../components/CardBook.svelte";
 	// @ts-ignore
-	import Catalog from "../components/Catalog.svelte";
   import News from "../components/News.svelte";
 	// @ts-ignore
-	import Search from "../components/Search.svelte";
+
   import Mainprofile from "../components/Mainprofile.svelte";
+  import CardClub from "../components/CardClub.svelte";
   // @ts-ignore
-  import Button from "../components/Button.svelte";
-  import ClubCard from "../components/ClubCard.svelte";
+
 
   import { onMount } from "svelte";
     // @ts-ignore
-    let clubs = [];
     let books = [{
       title: "The Great Gatsby",
       author: "F. Scott Fitzgerald",
@@ -100,7 +98,7 @@
   <h1>Ваши Клубы</h1>
   <div class="card-container">
     {#each clubs as club} 
-        <ClubCard 
+        <CardClub 
             name={club.name} 
             membercount={club.membercount} 
             photo={club.photo} 
