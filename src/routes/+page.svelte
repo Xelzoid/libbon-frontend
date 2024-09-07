@@ -1,6 +1,8 @@
 <script>
   import BookCard from "../components/BookCard.svelte";
+	import Catalog from "../components/Catalog.svelte";
   import News from "../components/News.svelte";
+	import Search from "../components/Search.svelte";
 
     let books = [
     {
@@ -17,6 +19,7 @@
 </script>
 
 <div class="container">
+  <Search/>
   <News/>
   <div class="card-container">
     {#each books as book}
@@ -27,6 +30,7 @@
       />
     {/each}
   </div>
+  <Catalog/>
 </div>
 
 <style>
