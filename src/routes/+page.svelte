@@ -53,7 +53,6 @@
 
 <div class="container">
   <Search/>
-  <News/>
   <hero>
     <News/>
     <Mainprofile 
