@@ -23,9 +23,9 @@
     cursor: pointer;
     width: 200px;
     height: 300px;
-    background-color: antiquewhite;
-    margin-right: 20px;
-    box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.3);
+    background-color: #DBD3C6;
+    margin-right: 35px;
+    box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.35);
     border-radius: 15px;
     text-decoration: none;
     color: black;
@@ -33,13 +33,16 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    border: 1px solid black;
   }
   .card_container:hover{
-    transform: translatey(-14px);
+    transform: translatey(-8px);
+    background-color: #D0C0A7;
+
   }
   .card_image{
     width: 100%;
-    height: 150px;
+    height: 220px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
   }

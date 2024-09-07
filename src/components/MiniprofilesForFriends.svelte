@@ -20,6 +20,7 @@
     }
     a:hover{
         transform: translateY(-5px);
+        background-color: #D0C0A7;
     }
     img{
         margin-top: 10px;
@@ -31,7 +32,7 @@
     .container{
         width: 130px;
         height: 170px;
-        background-color: antiquewhite;
+        background-color: #DBD3C6;
         border-radius: 20px;
         margin-top: 5%;
         margin-right: 40px;

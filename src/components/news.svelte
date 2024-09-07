@@ -20,7 +20,7 @@
 </script>
 
 <div class="news">
-  <h2>What's New?</h2>
+  <h1>Что нового?</h1>
   {#if error}
   <p>Error: {error}</p>
   {:else}
