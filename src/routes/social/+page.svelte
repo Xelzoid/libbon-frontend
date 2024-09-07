@@ -19,7 +19,6 @@
       // @ts-ignore
       console.log(err.message);
     }
-
     try {
       const response = await fetch('http://localhost:8000/api/social/my-clubs');
       if (!response.ok) {

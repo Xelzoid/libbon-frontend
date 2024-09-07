@@ -4,6 +4,7 @@
   import Button from "../../../components/Button.svelte";
   import ClubCard from "../../../components/CardClub.svelte";
   import { onMount } from "svelte";
+  import {FetchMe} from '$lib/utils'
   // @ts-ignore
   let user, friends = [], clubs = [], error = null;
   // @ts-ignore
@@ -35,7 +36,8 @@
       if (!response.ok) {
           throw new Error("Failed to fetch friends");
       }
-      friends = await response.json();
+      const data = await response.json();
+      friends = data.friends
     } catch (err) {
       // @ts-ignore
       error = err.message;
@@ -45,7 +47,8 @@
       if (!response.ok) {
           throw new Error("Failed to fetch clubs");
       }
-      clubs = await response.json();
+      const data = await response.json();
+      clubs = data.friends
     } catch (err) {
       // @ts-ignore
       error = err.message;
@@ -97,26 +100,26 @@
     </div>
   </div>
   
-  <style>
-    .container{
-      margin-left: 10%;
-      margin-right: 10%;
-      margin-top: 20px;
-    }
-    .button-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-      
-    }
-    .gr-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      padding: 16px;
-    }
-    .profile-container{
-      display: flex;
-      justify-content: center;
-    }
-  </style>
+<style>
+  .container{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+  }
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  .gr-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+  .profile-container{
+    display: flex;
+    justify-content: center;
+  }
+</style>
