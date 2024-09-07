@@ -8,10 +8,10 @@
         alert("Invalid email: Please enter a valid email address.");
         return;
     }
-    if (!validatePassword(password)) {
-        alert("Invalid password: Password must be at least 8 characters long and contain letters, numbers, and symbols.");
-        return;
-    }
+    // if (!validatePassword(password)) {
+    //     alert("Invalid password: Password must be at least 8 characters long and contain letters, numbers, and symbols.");
+    //     return;
+    // }
     alert("Form submitted successfully!");
     try {
       const response = await fetch("http://localhost:8000/api/login", {

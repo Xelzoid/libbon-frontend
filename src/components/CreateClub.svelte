@@ -1,18 +1,15 @@
 <script>
+  import Cookies from 'js-cookie';
   async function CreateClub() {
     try {
+      const token = Cookies.get('access_token');
       const response = await fetch("http://localhost:8000/api/create-club", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            number: number,
-            email: email,
-            password: password,
-            name: name,
-            surname: surname,
-            date_of_birth: date_of_birth
+            name: name
         })
       });
       if (!response.ok) {
@@ -26,3 +23,7 @@
     }
   }
 </script>
+
+<form action="">
+  <label for=""></label>
+</form>
