@@ -5,6 +5,19 @@
 	import Search from "../components/Search.svelte";
   import Mainprofile from "../components/Mainprofile.svelte";
   import Button from "../components/Button.svelte";
+  import { onMount } from "svelte";
+  //   let books = [
+  //   {
+  //     title: "The Great Gatsby",
+  //     author: "F. Scott Fitzgerald",
+  //     coverImage: "",
+  //   },
+  //   {
+  //     title: "1984",
+  //     author: "George Orwell",
+  //     coverImage: "",
+  //   }
+  // ];
     let books = [
     {
       title: "The Great Gatsby",
@@ -25,11 +38,18 @@
       photo: "",
     };
 
-  let buttons = [
-    {
-      label: "click me",
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/users/me");
+      if (!response.ok) {
+          throw new Error("Failed to fetch user info");
+      }
+      user = await response.json();
+    } catch (err) {
+      // @ts-ignore
+      error = err.message;
     }
-  ]
+  });
 </script>
 
 <div class="container">
@@ -49,11 +69,6 @@
         title={book.title} 
         author={book.author} 
         coverImage={book.coverImage} 
-      />
-    {/each}
-    {#each buttons as button}
-      <Button 
-        label={button.label} 
       />
     {/each}
   </div>

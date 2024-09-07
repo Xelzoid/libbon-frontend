@@ -3,20 +3,22 @@
     export let label = "";
 </script>
 
-<button class="container">
+<button>
     <p>{label}</p>
 </button>
 
 <style>
-    .container{
-        background-color: green;
+    button {
+        background-color: lightblue;
         border-radius: 5px;
-        width: 130px;
-        height: 30px;
         transition: 0.1s;
+        min-height: 20px;
         opacity: 0.9;
     }
-    .container:hover{
+    p {
+        padding: 0px 30px;
+    }
+    button:hover{
         opacity: 1;
     }
 </style>
