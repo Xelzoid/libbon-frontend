@@ -38,39 +38,42 @@
     padding: 0;
   }
   nav {
+    box-sizing: border-box;
     display: flex;
-    width: 1100px;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    padding: 0px 250px 0 250px;
   }
 
   nav h1 {
-    text-align: center;
     margin: 0;
+    width: 50%;
   }
 
-  ul {
+  nav ul {
+    box-sizing: border-box;
     display: flex;
     list-style-type: none;
-    
-  }
+    flex-direction: row-reverse;
+    width: 50%;
 
-  li {
-    margin: 0 16px; 
   }
 
   li a {
+    box-sizing: border-box;
     display: block;
     text-decoration: none;
-    padding: 15px 20px;
+    margin: 0px 5px;
+    padding: 7px 20px;
     text-align: center;
     background-color: #D9D9D9;
     color: black;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: background-color 0.3s;
-  }
 
+  }
   li a:hover {
     background-color: #b0b0b0; /* Цвет фона при наведении */
   }
