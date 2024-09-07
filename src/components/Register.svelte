@@ -23,27 +23,27 @@
     return telephoneRegex.test(number);
   }
   async function Register() {
-    if (!validateName(name)) {
-        alert("Invalid name: Name must be at least 2 characters and contain only letters.");
-        return;
-    }
-    if (!validateName(surname)) {
-        alert("Invalid surname: Surname must be at least 2 characters and contain only letters.");
-        return;
-    }
-    if (!validateEmail(email)) {
-        alert("Invalid email: Please enter a valid email address.");
-        return;
-    }
-    if (!validatePassword(password)) {
-        alert("Invalid password: Password must be at least 8 characters long and contain letters, numbers, and symbols.");
-        return;
-    }
-    // @ts-ignore
-    if (number && !validateTelephone(number)) {
-        alert("Invalid telephone number: must contain only numbers.");
-        return;
-    }
+    // if (!validateName(name)) {
+    //     alert("Invalid name: Name must be at least 2 characters and contain only letters.");
+    //     return;
+    // }
+    // if (!validateName(surname)) {
+    //     alert("Invalid surname: Surname must be at least 2 characters and contain only letters.");
+    //     return;
+    // }
+    // if (!validateEmail(email)) {
+    //     alert("Invalid email: Please enter a valid email address.");
+    //     return;
+    // }
+    // if (!validatePassword(password)) {
+    //     alert("Invalid password: Password must be at least 8 characters long and contain letters, numbers, and symbols.");
+    //     return;
+    // }
+    // // @ts-ignore
+    // if (number && !validateTelephone(number)) {
+    //     alert("Invalid telephone number: must contain only numbers.");
+    //     return;
+    // }
     try {
       const response = await fetch("http://localhost:8000/api/register", {
         method: "POST",

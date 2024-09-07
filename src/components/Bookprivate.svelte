@@ -16,10 +16,8 @@
 
 <style>
     .container{
-        max-width: 1000px;
         display: flex;
-        margin-left: 20%;
-        margin-top: 5%;
+        
     }
     .content{
         margin-left: 15%;

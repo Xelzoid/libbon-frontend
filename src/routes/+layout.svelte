@@ -25,7 +25,7 @@
   <a href="/">home</a>
 	<a href={profileUrl}>profile</a>
 	<a href="/social">social</a>
-  <a href="/catalog">books</a>
+  <a href="/catalog/1">books</a>
   <a href="/games">games</a>
 </li>
 
