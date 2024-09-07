@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
-  let user, error = null;
+  let user = {
+    friend_id: 0
+  }, error = null;
   onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");
@@ -13,7 +15,7 @@
       error = err.message;
     }
   });
-  let profileUrl = "/profile/${user.friend_id}";
+  let profileUrl = `/profile/${user.friend_id}`;
 </script>
 
 <nav>
@@ -23,7 +25,7 @@
   <a href="/">home</a>
 	<a href={profileUrl}>profile</a>
 	<a href="/social">social</a>
-  <a href="/books">books</a>
+  <a href="/catalog">books</a>
   <a href="/games">games</a>
 </li>
 
