@@ -15,9 +15,6 @@
     <div class="wrapper">
         <div class="ava_btn">
             <img src="{photo}" alt="photoava" class="photo">
-                <Button 
-                    label={button.label}
-                />
         </div>
         <div class="description">
             <h3>{name}</h3>
@@ -29,9 +26,10 @@
 <style>
     .container{
         width: 400px;
-        height: 200px;
+        height: 160px;
         background-color: antiquewhite;
         border-radius: 20px;
+        
         
     }
     .wrapper{
@@ -49,6 +47,7 @@
         object-fit: cover;
         border-radius: 100%;
         width: 130px;
+        height: 130px;
     }
     
 </style>

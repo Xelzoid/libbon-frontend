@@ -8,10 +8,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
     border-radius: 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 360px;
+    
 }
 
 input[type="text"] {
@@ -21,6 +23,7 @@ input[type="text"] {
     outline: none;
     width: 200px;
     font-size: 16px;
+    background-color: #ffffff;
 }
 
 button {

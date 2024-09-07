@@ -11,12 +11,12 @@
     {
       title: "The Great Gatsby",
       author: "F. Scott Fitzgerald",
-      coverImage: "",
+      coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
     },
     {
       title: "1984",
       author: "George Orwell",
-      coverImage: "",
+      coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
     }
   ];
 
@@ -24,7 +24,7 @@
     {
       name: "Mukanov Amir",
       read: "12",
-      photo: "",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
     };
   onMount(async () => {
     try {
