@@ -23,7 +23,6 @@
       read: "12",
       photo: "",
     };
-
   onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");
@@ -50,9 +49,9 @@
   <div class="card-container">
     {#each books as book}
       <BookCard 
-        title={book.title} 
-        author={book.author} 
-        coverImage={book.coverImage} 
+        title={book.title}
+        author={book.author}
+        coverImage={book.coverImage}
       />
     {/each}
   </div>

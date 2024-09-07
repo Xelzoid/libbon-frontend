@@ -13,7 +13,7 @@
       error = err.message;
     }
   });
-  
+  let profileUrl = "/profile/${user.friend_id}";
 </script>
 
 <nav>
@@ -21,7 +21,7 @@
 </nav>
 <li>
   <a href="/">home</a>
-	<a href="/profile/{user.friend_id}"">profile</a>
+	<a href={profileUrl}>profile</a>
 	<a href="/social">social</a>
   <a href="/books">books</a>
   <a href="/games">games</a>
