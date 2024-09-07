@@ -1,4 +1,4 @@
-<script>
+<script lang="js">
   // @ts-ignore
   import BookCard from "../../../components/BookCard.svelte";
   // @ts-ignore
@@ -11,6 +11,14 @@
   // @ts-ignore
   let user, friends = [], clubs = [], error = null;
   // @ts-ignore
+  user = {
+    id: 0,
+    name: 'Zangar',
+    booksread: 12,
+    books: [],
+    friends: [],
+    clubs: []
+  }
   onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");
@@ -23,41 +31,28 @@
       error = err.message;
     }
   });
-  user = {
-    id: 0,
-    name: 'Zangar',
-    booksread: 12,
-    books: [],
-    friends: [],
-    clubs: []
-  }
+
   onMount(async () => {
-    for (let friend of user.friends) {
-      try {
-        const response = await fetch("http://localhost:8000/api/users/124462");
-        if (!response.ok) {
-            throw new Error("Failed to fetch friend");
-        }
-        friend = await response.json();
-        friends.push(friend);
-      } catch (err) {
-        // @ts-ignore
-        error = err.message;
+    try {
+      const response = await fetch("http://localhost:8000/api/social/friends");
+      if (!response.ok) {
+          throw new Error("Failed to fetch friends");
       }
-    };
-    for (let club of user.clubs) {
-      try {
-        const response = await fetch("http://localhost:8000/api/club/124462");
-        if (!response.ok) {
-            throw new Error("Failed to fetch club");
-        }
-        club = await response.json();
-        clubs.push(club);
-      } catch (err) {
-        // @ts-ignore
-        error = err.message;
+      friends = await response.json();
+    } catch (err) {
+      // @ts-ignore
+      error = err.message;
+    }
+    try {
+      const response = await fetch("http://localhost:8000/api/my-clubs");
+      if (!response.ok) {
+          throw new Error("Failed to fetch clubs");
       }
-    };
+      clubs = await response.json();
+    } catch (err) {
+      // @ts-ignore
+      error = err.message;
+    }
   });
 
   </script>
