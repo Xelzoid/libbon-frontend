@@ -5,7 +5,7 @@
     export let name = "";
     
     let button = {
-      label: "go",
+      label: "start",
     }
 </script>  
 

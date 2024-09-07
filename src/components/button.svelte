@@ -13,12 +13,12 @@
         border-radius: 5px;
         transition: 0.1s;
         min-height: 20px;
-        opacity: 0.9;
+        transition: 0.2s;
     }
     p {
         padding: 0px 30px;
     }
     button:hover{
-        opacity: 1;
+        transform: translateY(2px);
     }
 </style>

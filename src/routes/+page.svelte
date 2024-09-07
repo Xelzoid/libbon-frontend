@@ -6,18 +6,7 @@
   import Mainprofile from "../components/Mainprofile.svelte";
   import Button from "../components/Button.svelte";
   import { onMount } from "svelte";
-  //   let books = [
-  //   {
-  //     title: "The Great Gatsby",
-  //     author: "F. Scott Fitzgerald",
-  //     coverImage: "",
-  //   },
-  //   {
-  //     title: "1984",
-  //     author: "George Orwell",
-  //     coverImage: "",
-  //   }
-  // ];
+
     let books = [
     {
       title: "The Great Gatsby",
@@ -89,6 +78,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
 </style>
 
 
