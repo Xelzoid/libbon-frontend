@@ -6,7 +6,7 @@
 </script>
 
 <div class="container">
-    <img class="Club_111" src="{photo}">
+    <img class="book_img" src="{photo}">
     <div class="content">
         <h1>{name}</h1>
         <h3>{author}</h3>
@@ -16,15 +16,13 @@
 
 <style>
     .container{
-        max-width: 1000px;
         display: flex;
-        margin-left: 20%;
-        margin-top: 5%;
+        
     }
     .content{
         margin-left: 15%;
     }
-    .Club_111{
+    .book_img{
         height: 400px;
         width: 300px;
         object-fit: cover;
