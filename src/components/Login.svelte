@@ -1,6 +1,4 @@
 <script>
-  // @ts-ignore
-  import { onMount } from "svelte";
   let email = '', password = '', token = '', error = null;
 
   async function login() {
@@ -8,40 +6,37 @@
         alert("Invalid email: Please enter a valid email address.");
         return;
     }
-    // if (!validatePassword(password)) {
-    //     alert("Invalid password: Password must be at least 8 characters long and contain letters, numbers, and symbols.");
-    //     return;
-    // }
+    if (!validatePassword(password)) {
+        alert("Invalid password: Password must be at least 8 characters long and contain letters, numbers, and symbols.");
+        return;
+    }
     alert("Form submitted successfully!");
+    
     try {
-      const response = await fetch("http://localhost:8000/api/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        })
-      });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail);
-      }
-      
-      const data = await response.json();
-      token = data.token; // Save the token for future use
+        const formBody = new URLSearchParams();
+        formBody.append("username", email);
+        formBody.append("password", password);
+
+        const response = await fetch("http://localhost:8000/api/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formBody.toString()  // URL encoded body
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.detail);
+        }
+        
+        const data = await response.json();
+        token = data.token; // Save the token for future use
+        localStorage.setItem('token', token);
+    } catch (err) {
+        error = err.message;
     }
-    catch (err) {
-      // @ts-ignore
-      error = err.message;
-    }
-  }
-  // @ts-ignore
-  function validateName(name) {
-    const nameRegex = /^[A-Za-z]{2,}$/;
-    return nameRegex.test(name);
-  }
+}
   // @ts-ignore
   function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -51,11 +46,6 @@
   function validatePassword(password) {
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
-  }
-  // @ts-ignore
-  function validateNumber(number) {
-    const telephoneRegex = /^\d+$/;
-    return telephoneRegex.test(number);
   }
 
 </script>
@@ -71,7 +61,7 @@
       Password:
       <input type="password" bind:value={password} required />
   </label>
-  <button type="submit">Register</button>
+  <button type="submit">Login</button>
 </form>
 
 <style>
