@@ -54,7 +54,6 @@
       error = err.message;
     }
   });
-
   </script>
   
   <div class="container">
