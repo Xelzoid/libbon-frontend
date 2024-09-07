@@ -4,7 +4,7 @@
 </script>
 
 <button class="container">
-    <label>{label}</label>
+    <p>{label}</p>
 </button>
 
 <style>
