@@ -38,18 +38,22 @@
     .container{
         max-width: 1000px;
         display: flex;
-        margin: auto;
+        margin-left: 20%;
+        margin-top: 5%;
     }
     .content{
-        
+        margin-left: 80px;
     }
     .book_img{
-        height: 650px;
+        height: 400px;
         width: 300px;
         object-fit: cover;
     }
     h1{
         font-weight: bold;
-        font-size: x-large;
+        font-size: 50px;
+    }
+    h3{
+        font-size: 30px;
     }
 </style>

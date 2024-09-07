@@ -56,18 +56,6 @@
         coverImage={book.coverImage} 
       />
     {/each}
-    {#each buttons as button}
-      <Button 
-        label={button.label} 
-      />
-    {/each}
-    {#each books_private as bookpr}
-      <Bookprivate 
-        name={bookpr.name} 
-        author={bookpr.author} 
-        description={bookpr.description} 
-      />
-    {/each}
   </div>
 </div>
 
@@ -87,6 +75,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
 </style>
 
 

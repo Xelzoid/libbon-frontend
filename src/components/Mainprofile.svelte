@@ -20,7 +20,6 @@
                 {#each buttons as button}
                 <Button 
                     label={button.label} 
-                    btn_width = {button.btn_width}
                 />
             {/each}
         </div>
