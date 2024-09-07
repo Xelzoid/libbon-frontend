@@ -9,7 +9,7 @@
 
 </script>
 
-<a class="card_container" href="/books">
+<a class="card_container" href="/books/0">
   <img src="{coverImage}" class="card_image" alt="Cover_Image">
   <div>
     <h3 class="title">{title}</h3>
