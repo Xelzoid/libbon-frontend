@@ -21,15 +21,15 @@
         }
     });
     
-  book = {title:"book's",author:"",description:"",photo:""};
+  book = {title:"book's",author:"Author",description:"desc",photo:""};
 
 </script>
 
 
 <Bookprivate
-name = {book.title};
-author = {book.author};
-description = {book.description};
+name = {book.title}
+author = {book.author}
+description = {book.description}
 photo = {book.photo}
 />
 
