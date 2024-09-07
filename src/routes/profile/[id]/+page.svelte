@@ -1,11 +1,15 @@
 <script>
+  // @ts-ignore
   import BookCard from "../../components/BookCard.svelte";
+  // @ts-ignore
   import Mainprofile from "../../components/Mainprofile.svelte";
+  // @ts-ignore
   import Button from "../../components/Button.svelte";
+  // @ts-ignore
   import { onMount } from "svelte";
+  // @ts-ignore
   let books = [], user, error = null;
-  import { onMount } from "svelte";
-
+  // @ts-ignore
   onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");

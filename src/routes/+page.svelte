@@ -8,22 +8,21 @@
     {
       title: "The Great Gatsby",
       author: "F. Scott Fitzgerald",
-      coverImage: "a",
+      coverImage: "",
     },
     {
       title: "1984",
       author: "George Orwell",
-      coverImage: "a",
+      coverImage: "",
     }
   ];
 
-  let profiles = [
+  let user = 
     {
       name: "Mukanov Amir",
       read: "12",
       photo: "",
-    }
-  ];
+    };
 
   let buttons = [
     {
@@ -33,16 +32,14 @@
 </script>
 
 <div class="container">
-  <News/>
-  <div class="profile-container">
-    {#each profiles as profile}
-      <Mainprofile 
-        name={profile.name} 
-        read={profile.read} 
-        photo={profile.photo} 
-      />
-    {/each}
-  </div>  
+  <hero>
+    <News/>
+    <Mainprofile 
+      name={user.name} 
+      read={user.read} 
+      photo={user.photo} 
+    />
+  </hero>  
   <div class="card-container">
     {#each books as book}
       <BookCard 
@@ -62,16 +59,18 @@
 <style>
   .container{
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right: 5%;
+  }
+  hero {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
   }
   .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
-  .profile-container{
-    display: flex;
-    justify-content: end;
   }
 </style>
 
