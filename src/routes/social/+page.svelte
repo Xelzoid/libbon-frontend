@@ -10,7 +10,7 @@
     
     onMount(async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/users/me");
+      const response = await fetch("http://localhost:8000/api/user/me");
       if (!response.ok) {
         throw new Error("Failed to fetch user info");
       }

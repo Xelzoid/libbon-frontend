@@ -1,9 +1,15 @@
 export async function FetchMe() {
+    const token = localStorage.getItem('token');
     let user = {};
     try {
-        const response = await fetch("http://localhost:8000/api/users/me");
+        const response = await fetch("http://localhost:8000/api/users/me", {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+        });
         if (!response.ok) {
             throw new Error("Failed to fetch user info");
+            
         }
         user = await response.json();
     } catch (err) {
@@ -13,9 +19,15 @@ export async function FetchMe() {
     return user 
 }
 export async function FetchClubs() {
+    const token = localStorage.getItem('token');
     let clubs = [];
     try {
-        const response = await fetch('http://localhost:8000/api/social/my-clubs');
+        const response = await fetch('http://localhost:8000/api/social/my-clubs', {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+        });
+        
         if (!response.ok) {
             throw new Error('Failed to fetch clubs');
         }
@@ -28,9 +40,14 @@ export async function FetchClubs() {
     return clubs
 }
 export async function FetchFriends() {
+    const token = localStorage.getItem('token');
     let friends = [];
     try {
-        const response = await fetch("http://localhost:8000/api/social/friends");
+        const response = await fetch("http://localhost:8000/api/social/friends", {
+            headers: {
+                'Authorization': `Bearer ${token}` 
+            }
+        });
         if (!response.ok) {
             throw new Error("Failed to fetch friends");
         }

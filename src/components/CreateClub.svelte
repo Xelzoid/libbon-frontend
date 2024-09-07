@@ -1,32 +1,35 @@
 <script>
-  import Cookies from 'js-cookie';
   let name = '';
   let error = '';
 
   async function CreateClub() {
+    const formBody = new URLSearchParams();
+    formBody.append("name", name)
     try {
-      const token = Cookies.get('access_token');
-      const response = await fetch("http://localhost:8000/api/create-club", {
+      const token = localStorage.getItem('token');
+      console.log(token);
+      const response = await fetch("http://localhost:8000/api/social/create-club", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}` // Add token if required for authentication
+          'Content-Type': 'application/x-www-form-urlencoded',
+          "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify({
-          name: name
-        })
+        // body: JSON.stringify({
+        //   name
+        // })
+        body: formBody.toString()
       });
       
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.detail);
+        throw new Error(errorData.detail || 'Error creating club');
       }
-
-      // Handle successful club creation
-      
+      const result = await response.json();
+      alert('Club created successfully!');
+      console.log(result);
     } catch (err) {
       // Handle the error
-      error = err.message;
+      alert(`Failed to create club: ${err.message}`);
     }
   }
 </script>
