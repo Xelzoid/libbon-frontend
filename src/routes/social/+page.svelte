@@ -1,45 +1,56 @@
 <script>
-	import ClubCard from "../../components/ClubCard.svelte";
+	import ClubCard from "../../components/CardClub.svelte";
 	import MiniprofilesForFriends from "../../components/MiniprofilesForFriends.svelte";
     import Search from "../../components/Search.svelte";
     import { onMount } from "svelte";
 
-
+    // @ts-ignore
+    // @ts-ignore
+    let user = {}, friends = [], clubs = [], error = null;
     
     onMount(async () => {
     try {
       const response = await fetch("http://localhost:8000/api/users/me");
       if (!response.ok) {
-          throw new Error("Failed to fetch user info");
+        throw new Error("Failed to fetch user info");
       }
-      users = await response.json();
-      clubs = await response.json();
+      user = await response.json();
     } catch (err) {
       // @ts-ignore
-      error = err.message;
+      console.log(err.message);
+    }
+
+    try {
+      const response = await fetch('http://localhost:8000/api/social/my-clubs');
+      if (!response.ok) {
+        throw new Error('Failed to fetch clubs');
+      }
+      const data = await response.json();
+      clubs = data.clubs;
+    } catch (err) {
+      // @ts-ignore
+      console.log(err.message);
+    }
+
+    try {
+      const response = await fetch('http://localhost:8000/api/social/friends');
+      if (!response.ok) {
+        throw new Error('Failed to fetch clubs');
+      }
+      const data = await response.json();
+      friends = data.friends;
+    } catch (err) {
+      // @ts-ignore
+      console.log(err.message);
     }
   });
-
-  let clubs = [{
-    name:"Amir's Club",membercount: "12", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s"
-  },
-{name:"Amir's Club",membercount: "12", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s"    
-},
-]
-  let users = [{
+  // @ts-ignore
+  clubs = [];
+  friends = [{
     photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
     name: 'Amir',
     read: "12",
-    },{
-    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
-    name: 'Zangar',
-    read: "12",
-    },{
-    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
-    name: 'Arsen',
-    read: "12",
-    }
-    ]
+  }];
 </script>
 
 
@@ -48,7 +59,7 @@
     <Search/>
     <h2 class="lab">Друзья</h2>
     <div class="friends_row">
-        {#each users as user} 
+        {#each friends as user} 
             <MiniprofilesForFriends 
                 name={user.name} 
                 read={user.read} 

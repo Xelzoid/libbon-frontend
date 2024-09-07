@@ -1,5 +1,5 @@
 <script>
-  import BookCard from "../../../components/BookCard.svelte";
+  import BookCard from "../../../components/CardBook.svelte";
 	import Catalog from "../../../components/Catalog.svelte";
 	import Search from "../../../components/Search.svelte";
   import { onMount } from "svelte";

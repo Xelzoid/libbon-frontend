@@ -1,5 +1,5 @@
 <script>
-  import BookCard from "../components/BookCard.svelte";
+  import CardBook from "../components/CardBook.svelte";
 	import Catalog from "../components/Catalog.svelte";
   import News from "../components/News.svelte";
 	import Search from "../components/Search.svelte";
@@ -55,7 +55,7 @@
   </hero>  
   <div class="card-container">
     {#each books as book}
-      <BookCard 
+      <CardBook 
         title={book.title}
         author={book.author}
         coverImage={book.coverImage}

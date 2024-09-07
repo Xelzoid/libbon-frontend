@@ -1,8 +1,8 @@
 <script lang="js">
-  import BookCard from "../../../components/BookCard.svelte";
+  import BookCard from "../../../components/CardBook.svelte";
   import Mainprofile from "../../../components/Mainprofile.svelte";
   import Button from "../../../components/Button.svelte";
-  import ClubCard from "../../../components/ClubCard.svelte";
+  import ClubCard from "../../../components/CardClub.svelte";
   import { onMount } from "svelte";
   // @ts-ignore
   let user, friends = [], clubs = [], error = null;
