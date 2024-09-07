@@ -16,15 +16,16 @@
   .card_container {
       width: 200px;
       height: 300px;
-      background-color: antiquewhite;
-      margin-right: 50px;
-      box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.4);
+      background-color:#DBD3C6;
+      margin-right: 35px;
+      box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.35);
       border-radius: 15px ;
       transition: 0.2s;
   
     }
     .card_container:hover{
-      transform: translateY(-10px);
+      transform: translateY(-8px);
+      background-color: #D0C0A7;
     }
     .content{
       text-align: center;
@@ -32,7 +33,7 @@
     }
     .card_image{
       width: 100%;
-      height: 150px;
+      height: 220px;
       object-fit: cover;
       border-radius: 15px 15px 0 0;
     }

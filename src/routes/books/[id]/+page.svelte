@@ -1,4 +1,3 @@
-
 <script>
   import { onMount } from "svelte";
   import Bookprivate from "../../../components/Bookprivate.svelte";
@@ -35,7 +34,7 @@
 </script>
 
 <div class="container">
-  
+
 
   <Bookprivate
     name={book.title}
@@ -60,7 +59,7 @@
   {/if}
   {#each comments as { id, text }}
     <Comment text={text} />
-  {/each}  
+  {/each}
 </div>
 
 <style>

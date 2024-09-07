@@ -11,7 +11,7 @@
 
 
 
-<div class="container">
+<a href="/profile/0" class="container">
     <div class="wrapper">
         <div class="ava_btn">
             <img src="{photo}" alt="photoava" class="photo">
@@ -21,16 +21,23 @@
             <p>Reading: {read}</p>
         </div>
     </div>
-</div>
+</a>
 
 <style>
+    a{
+        text-decoration: 0;
+        color: black;
+    }
     .container{
         width: 400px;
         height: 160px;
-        background-color: antiquewhite;
+        background-color:#DBD3C6;
         border-radius: 20px;
-        
-        
+        box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.3);
+        transition: 0.1s;
+    }
+    .container:hover{
+        background-color: #D0C0A7;
     }
     .wrapper{
         display: flex;

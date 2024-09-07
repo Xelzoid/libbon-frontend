@@ -1,24 +1,48 @@
 <script>
     import { onMount } from "svelte";
     import Club from "../../../components/Club.svelte";
+  import { onMount } from "svelte";
+  import Bookprivate from "../../../components/Club.svelte";
+  import Comment from "../../../components/Comment.svelte";
 
-    let error = null;
+  // @ts-ignore
+  let news = [];
+  // @ts-ignore
+  let error = null;
+  let club;
+  let showCommentForm = false;
+  let newComment = '';
+  let comments = []; 
 
-    onMount(async () => {
-        try {
-            const response = await fetch("http://localhost:8000/news");
-            if (!response.ok) {
-                throw new Error("Failed to fetch data");
-            }
-            book = await response.json();
-        } catch (err) {
-            error = err.message;
-        }
-    });
-    let book = { title: "Ghbajdoiajd", author: "adasdasd", description: "asdsadadad", photo: "" };
+  onMount(async () => {
+    try {
+      const response = await fetch("http://localhost:8000/news");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      club = await response.json();
+    } catch (err) {
+      // @ts-ignore
+      error = err.message;
+    }
+  });
+
+  club = {title:"Club name", author:"Author", description:"Description", photo:""};
+
+  function addComment() {
+    if (newComment.trim() === '') {
+      return; 
+    }
+    comments = [...comments, { id: Date.now(), text: newComment }];
+    newComment = ''; 
+    showCommentForm = false; 
+  }
+
+  function joinClub() {
+  }
 </script>
 
-<Club
+<Bookprivate
     name={book.title}
     description={book.description}
     photo={book.photo}

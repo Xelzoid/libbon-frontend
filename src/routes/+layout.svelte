@@ -20,20 +20,25 @@
 
 <div class="header">
   <nav>
-    <h1>LIBOn</h1>
+    <img src="logobl.png">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href={profileUrl}>Profile</a></li>
       <li><a href="/social">Social</a></li>
       <li><a href="/catalog/1">Books</a></li>
-      <li><a href="/games">Games</a></li>
+      <li><a href="/game/0">Games</a></li>
     </ul>
   </nav>
 </div>
 <style>
+  img{
+    width: 240px;
+    height: 80px;
+    object-fit: fill;
+  }
   .header{
     width: 100%;
-    background-color: #D9D9D9;
+    background-color: #DBD3C6;
     margin: 0;
     padding: 0;
   }
@@ -68,15 +73,16 @@
     margin: 0px 5px;
     padding: 7px 20px;
     text-align: center;
-    background-color: #D9D9D9;
+    background-color: #DBD3C6;
     color: black;
     border-radius: 10px;
     transition: background-color 0.3s;
 
   }
   li a:hover {
-    background-color: #b0b0b0; /* Цвет фона при наведении */
+    background-color: #D0C0A7; /* Цвет фона при наведении */
   }
+  
 </style>
 
 <slot></slot>
