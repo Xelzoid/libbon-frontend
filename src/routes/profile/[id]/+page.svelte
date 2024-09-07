@@ -1,12 +1,8 @@
 <script lang="js">
-  // @ts-ignore
   import BookCard from "../../../components/BookCard.svelte";
-  // @ts-ignore
   import Mainprofile from "../../../components/Mainprofile.svelte";
-  // @ts-ignore
   import Button from "../../../components/Button.svelte";
   import ClubCard from "../../../components/ClubCard.svelte";
-  // @ts-ignore
   import { onMount } from "svelte";
   // @ts-ignore
   let user, friends = [], clubs = [], error = null;
@@ -15,6 +11,7 @@
     id: 0,
     name: 'Zangar',
     booksread: 12,
+    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
     books: [],
     friends: [],
     clubs: []
@@ -54,7 +51,6 @@
       error = err.message;
     }
   });
-
   </script>
   
   <div class="container">

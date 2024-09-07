@@ -39,6 +39,48 @@
   
   <div class="container">
   
+
+  <Bookprivate
+    name={book.title}
+    author={book.author}
+    description={book.description}
+    photo={book.photo}
+  />
+  
+  <button on:click={() => showCommentForm = !showCommentForm}>
+    {showCommentForm ? 'Отмена' : 'Оставить Отзыв '}
+  </button>
+  {#if showCommentForm}
+    <div class="comment-form">
+      <textarea bind:value={newComment} placeholder="Write your review here..."></textarea>
+      <button on:click={addComment}>Добавить отзыв</button>
+    </div>
+  {/if}
+  {#each comments as { id, text }}
+    <Comment text={text} />
+  {/each}  
+</div>
+
+<style>
+  .container {
+    margin-left: 20%;
+    margin-top: 5%;
+  }
+
+  .comment-form {
+    margin-top: 20px;
+  }
+
+  .comment-form textarea {
+    width: 100%;
+    height: 100px;
+  }
+
+  .comment-form button {
+    margin-top: 10px;
+  }
+</style>
+
   
     <Bookprivate
       name={book.title}
