@@ -7,10 +7,9 @@
 
   import Mainprofile from "../components/Mainprofile.svelte";
   import CardClub from "../components/CardClub.svelte";
-  // @ts-ignore
-
 
   import { onMount } from "svelte";
+	import Footer from "../components/Footer.svelte";
     // @ts-ignore
     let books = [{
       title: "The Great Gatsby",
@@ -80,13 +79,14 @@
 <div class="container">
   <CreateClub/>
   <hero>
-    <News/>
     <Mainprofile 
       name={user.name} 
       read={user.read} 
       photo={user.photo} 
     />
   </hero>  
+  <News/>
+
   <h1>Избранные Книги</h1>
   <div class="card-container">
     {#each books as book}
@@ -106,8 +106,10 @@
             photo={club.photo} 
         />
     {/each}
+  </div>
 </div>
-</div>
+<Footer/>
+
 
 <style>
   .container{
@@ -117,6 +119,7 @@
   hero {
     margin-top: 20px;
     display: flex;
+    align-items: center;
     width: 100%;
     justify-content: space-between;
   }

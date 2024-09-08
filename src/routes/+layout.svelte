@@ -18,9 +18,11 @@
   let profileUrl = `/profile/${user.friend_id}`;
 </script>
 
+
+
 <div class="header">
   <nav>
-    <img src="logobl.png">
+    <a href="/"><img  src="logobl.png"></a>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href={profileUrl}>Profile</a></li>
@@ -30,6 +32,8 @@
     </ul>
   </nav>
 </div>
+
+
 <style>
   img{
     width: 240px;
@@ -61,7 +65,7 @@
     box-sizing: border-box;
     display: flex;
     list-style-type: none;
-    flex-direction: row-reverse;
+    flex-direction: row;
     width: 50%;
 
   }

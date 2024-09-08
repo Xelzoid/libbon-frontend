@@ -1,6 +1,7 @@
 <script>
 	import ClubCard from "../../components/CardClub.svelte";
 	import MiniprofilesForFriends from "../../components/MiniprofilesForFriends.svelte";
+  import Footer from "../../components/Footer.svelte";
     import Search from "../../components/Search.svelte";
     import { onMount } from "svelte";
 
@@ -52,8 +53,6 @@
   }];
 </script>
 
-
-
 <div class="container">
     <Search/>
     <h2 class="lab">Друзья</h2>
@@ -77,6 +76,7 @@
         {/each}
     </div>
 </div>
+<Footer/>
 
 <style>
     .container{

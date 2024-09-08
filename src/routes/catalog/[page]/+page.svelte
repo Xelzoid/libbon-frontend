@@ -2,6 +2,7 @@
   import BookCard from "../../../components/CardBook.svelte";
 	import Catalog from "../../../components/Catalog.svelte";
 	import Search from "../../../components/Search.svelte";
+  import Footer from "../../../components/Footer.svelte";
   import { onMount } from "svelte";
     let books = [
     {
@@ -65,6 +66,7 @@
     {/if}
   </div>
 </div>
+<Footer/>
 
 <style>
   .container{
@@ -84,3 +86,4 @@
     justify-content: center;
   }
 </style>
+

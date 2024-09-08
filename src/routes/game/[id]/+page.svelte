@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-  
+    import Footer from '../../../components/Footer.svelte';
     let currentQuestionIndex = 0;
     let selectedAnswer = null;
     let isQuizComplete = false;
@@ -147,4 +147,6 @@
       </form>
     {/if}
   </div>
+
+  <Footer/>
   

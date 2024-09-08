@@ -25,14 +25,19 @@
   });
 </script>
 
+<h1>Что нового?</h1>
+
 <div class="news">
-  <h1>Что нового?</h1>
   {#if error}
     <p>Error: {error}</p>
   {:else}
     <ul>
-      {#each articles as novost}
-        <li>{novost.title}</li>
+      {#each articles.slice(0, 5) as novost} <!-- Ограничиваем количество новостей до 5 -->
+        <li>
+          <div class="content">
+            {novost.title}
+          </div>
+        </li>
       {/each}
     </ul>
   {/if}
@@ -41,5 +46,22 @@
 <style>
   .news {
     display: flex;
+  }
+  ul {
+    display: flex;
+    margin-left: -60px;
+  }
+  li {
+    text-decoration: none;
+    list-style-type: none;
+    width: 200px;
+    max-height: 100px;
+    margin-left: 20px;
+    border: 1px solid black;  
+    border-radius: 14px;
+    box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.25);
+  }
+  .content {
+    padding: 5px;
   }
 </style>

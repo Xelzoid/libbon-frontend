@@ -1,6 +1,7 @@
 <script>
 import Gamecard from "../../components/Gamecard.svelte";
 import GameCard2 from "../../components/GameCard2.svelte";
+import Footer from "../../components/Footer.svelte";
   let books = [
     {
       title: "Quiz",
@@ -17,7 +18,7 @@ import GameCard2 from "../../components/GameCard2.svelte";
 
 <div class="container">
   <div class="card-container">
-    
+
     <Gamecard
       title={books[0].title}
       author={books[0].author}
@@ -31,6 +32,7 @@ import GameCard2 from "../../components/GameCard2.svelte";
     />
   </div>
 </div>
+<Footer/>
 
 <style>
   .container {
@@ -44,3 +46,5 @@ import GameCard2 from "../../components/GameCard2.svelte";
     margin-top: 80px;
   }
 </style>
+
+

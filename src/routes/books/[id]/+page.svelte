@@ -4,6 +4,7 @@
   import Comment from "../../../components/Comment.svelte";
   import AddBook from "../../../components/AddBook.svelte";
   import RemoveBook from "../../../components/RemoveBook.svelte";
+	import Footer from "../../../components/Footer.svelte";
   // @ts-ignore
   let error = null, book, showCommentForm = false, newComment = '', comments = [], isBookInLibrary = false;
 
@@ -61,6 +62,8 @@
     <Comment text={text} />
   {/each}
 </div>
+<Footer/>
+
 
 <style>
   .container {
