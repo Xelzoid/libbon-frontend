@@ -36,4 +36,21 @@
   }
 </script>
 
-<button on:click={addBookToLibrary(bookId)}>Add Book</button>
+<button on:click={addBookToLibrary(bookId)}>В Избранные</button>
+
+<style>
+  button{
+    margin-top: 15px;
+    height: 40px;
+    width: 120px;
+    background-color: #ebe3d5;
+    font-weight: 500;
+    border: none;
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.15);
+    transition: 0.1s;
+
+  }
+  button:hover{
+    background-color: #ded5c5;
+  }
+</style>

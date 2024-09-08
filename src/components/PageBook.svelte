@@ -10,8 +10,8 @@
         <h1>{name}</h1>
         <h3>{author}</h3>
         <time datetime="{dop}">{dop}</time>
-        <p>{description}</p>
         <p>{stars}</p>
+        <p>{description}</p>
     </div>
 </div>
 

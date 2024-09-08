@@ -1,7 +1,7 @@
 <script>
 // Social media links (replace with actual links)
 const socialLinks = {
-    instagram: "https://www.instagram.com/",
+    instagram: "https://www.instagram.com/mika_bo1/",
     whatsapp: "https://wa.me/+77759534339",
     telegram: "https://t.me/+dtPUd3nmKCswNDYy",
 };
@@ -12,11 +12,11 @@ const socialLinks = {
     <div class="footer-column">
     <h3>LIBON</h3>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">Social</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/catalog/1">Books</a></li>
+        <li><a href="/social">Social</a></li>
         <li><a href="#">Profile</a></li>
-        <li><a href="#">Games</a></li>
+        <li><a href="/games">Games</a></li>
     </ul>
     </div>
     <div class="footer-column">
