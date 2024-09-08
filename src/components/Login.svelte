@@ -62,6 +62,7 @@
       <input type="password" bind:value={password} required />
   </label>
   <button type="submit">Login</button>
+  <a href="/register">No account?</a>
 </form>
 
 <style>

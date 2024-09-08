@@ -15,12 +15,12 @@
     let books = [{
       title: "The Great Gatsby",
       author: "F. Scott Fitzgerald",
-      coverImage: "https://simg.marwin.kz/media/catalog/product/cache/8d1771fdd19ec2393e47701ba45e606d/m/a/maas_sundefined_dzhundefinedun_1450262_11.png",
+      coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
     },
     {
       title: "1984",
       author: "George Orwell",
-      coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
+      coverImage: "https://m.media-amazon.com/images/I/61NAx5pd6XL._AC_UF1000,1000_QL80_.jpg",
     }
   ];
 
@@ -35,7 +35,7 @@
   },
   {name:"Amir's Club",membercount: "12", photo:  ''  
 }]
-  user = { photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s", name: 'Amir', read: "12"}
+  user = { photo: "https://images.immediate.co.uk/production/volatile/sites/3/2024/01/avatar-the-last-airbender-cdc2b79.jpg?resize=1200%2C630", name: 'Amir', read: "12"}
 </script>
 {#if loading}
 <p>Loading </p>

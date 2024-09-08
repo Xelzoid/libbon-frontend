@@ -107,6 +107,7 @@
   </label>
 
   <button type="submit">Register</button>
+  <a href="/login">Already have an account?</a>
 </form>
 
 <style>
