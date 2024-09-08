@@ -1,16 +1,16 @@
 <script>
   import CardBook from "../components/CardBook.svelte";
   import CreateClub from "../components/CreateClub.svelte";
-	// @ts-ignore
+    // @ts-ignore
   import News from "../components/News.svelte";
-	// @ts-ignore
+    // @ts-ignore
   import { FetchMe } from "$lib/utils";
   import Mainprofile from "../components/Mainprofile.svelte";
   import CardClub from "../components/CardClub.svelte";
 
   import { onMount } from "svelte";
-	import Footer from "../components/Footer.svelte";
-	import Slide from "../components/Slide.svelte";
+    import Footer from "../components/Footer.svelte";
+    import Slide from "../components/Slide.svelte";
     // @ts-ignore
     let books = [{
       title: "The Great Gatsby",
@@ -24,7 +24,7 @@
     }
   ];
 
-  let user, loading = true;
+  let user, loading = false;
   onMount(async () => {
     const token = localStorage.getItem('token');
     user = FetchMe();
@@ -33,27 +33,30 @@
   let clubs = [{
     name:"Amir's Club",membercount: "12", photo:''
   },
-  {name:"Amir's Club",membercount: "12", photo:  ''  
-  },
-  ]
+  {name:"Amir's Club",membercount: "12", photo:  ''
+}]
+  user = { photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s", name: 'Amir', read: "12"}
 </script>
 {#if loading}
 <p>Loading </p>
-{:else if error}
-<p>Error: check console</p>
 {:else}
 <div class="mainsection">
+  <div class="container">
+    <CreateClub/>
+    <hero>
+      <Mainprofile 
+        name={user.name} 
+        read={user.read} 
+        photo={user.photo} 
+      />
+    </hero>  
+  </div>
+</div>
+<div class="book_section">
+  <div class="container">
+  <News/></div>
+</div>
 <div class="container">
-  <CreateClub/>
-  <hero>
-    <Mainprofile 
-      name={user.name} 
-      read={user.read} 
-      photo={user.photo} 
-    />
-  </hero>  
-  <News/>
-
   <h1>Избранные Книги</h1>
   <div class="card-container">
     {#each books as book}
@@ -74,7 +77,6 @@
         />
     {/each}
   </div>
-</div>
 </div>
 {/if}
 <Footer/>
