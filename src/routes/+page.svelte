@@ -77,7 +77,6 @@
 </script>
 <div class="mainsection">
   <div class="container">
-    <CreateClub/>
     <hero>
       <div>
       <Slide/>
@@ -88,9 +87,15 @@
         photo={user.photo} 
       />
     </hero>  
+  </div>
+</div>
+<div class="book_section">
+  <div class="container">
+
     <News/>
   </div>
 </div>
+
 <div class="container">
   <h1>Избранные Книги</h1>
   <div class="card-container">
@@ -113,12 +118,18 @@
     {/each}
   </div>
 </div>
+
 <Footer/>
 
 
 <style>
+  .book_section{
+    background-color:#f2f2f2;
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .mainsection{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #6969B3;
     z-index: -1;
     padding-bottom: 30px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);

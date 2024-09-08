@@ -31,13 +31,13 @@
     .container{
         width: 400px;
         height: 160px;
-        background-color:#DBD3C6;
+        background-color:#ebe3d5;
         border-radius: 20px;
         box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.3);
         transition: 0.1s;
     }
     .container:hover{
-        background-color: #D0C0A7;
+        background-color: #ded5c5;
     }
     .wrapper{
         display: flex;

@@ -52,7 +52,8 @@
     margin-left: -60px;
   }
   li {
-    background-color: #DBD3C6;
+    color: black;
+    background-color: #ebe3d5;
     text-decoration: none;
     list-style-type: none;
     width: 200px;
@@ -60,7 +61,7 @@
     margin-left: 20px;
     border: 1px solid black;  
     border-radius: 14px;
-    box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.25);
+    font-size: 13px;
   }
   .content {
     padding: 5px;

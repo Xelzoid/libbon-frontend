@@ -1,10 +1,9 @@
 <script>
-    import { onMount } from "svelte";
     import Club from "../../../components/Club.svelte";
-  import { onMount } from "svelte";
-  import Bookprivate from "../../../components/Club.svelte";
-  import Comment from "../../../components/Comment.svelte";
-  import Footer from "../../../components/Footer.svelte";
+    import { onMount } from "svelte";
+    import Bookprivate from "../../../components/Club.svelte";
+    import Comment from "../../../components/Comment.svelte";
+    import Footer from "../../../components/Footer.svelte";
 
   // @ts-ignore
   let news = [];

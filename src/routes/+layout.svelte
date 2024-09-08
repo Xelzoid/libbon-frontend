@@ -42,7 +42,7 @@
   }
   .header{
     width: 100%;
-    background-color: #DBD3C6;
+    background-color: #ebe3d5;
     margin: 0;
     padding: 0;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.12);
@@ -78,7 +78,6 @@
     margin: 0px 5px;
     padding: 7px 20px;
     text-align: center;
-    background-color: #DBD3C6;
     color: black;
     border-radius: 10px;
     transition: background-color 0.3s;
