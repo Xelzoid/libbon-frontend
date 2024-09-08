@@ -17,14 +17,13 @@ import GameCard2 from "../../components/GameCard2.svelte";
 
 <div class="container">
   <div class="card-container">
-    <!-- Карточка для первой книги -->
+    
     <Gamecard
       title={books[0].title}
       author={books[0].author}
       coverImage={books[0].coverImage}
     />
 
-    <!-- Карточка для второй книги -->
     <GameCard2 
       title={books[1].title}
       author={books[1].author}
