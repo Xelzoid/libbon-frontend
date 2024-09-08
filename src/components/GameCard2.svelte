@@ -4,7 +4,7 @@
     export let coverImage = '';
   </script>
   
-  <a class="card_container2" href="">
+  <a class="card_container2" href="/wordle">
     <img src="{coverImage}" class="card_image" alt="Cover Image">
     <div>
       <h3 class="title2" >{title}</h3>
