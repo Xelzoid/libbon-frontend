@@ -21,9 +21,7 @@
     try {
       const url = new URL(window.location.href);
       page = Number(url.pathname.split('/').pop()) || 1;
-
       const offset = (page - 1) * limit;
-
       const response = await fetch(`/api/books?limit=${limit}&offset=${offset}`);
       const data = await response.json();
 

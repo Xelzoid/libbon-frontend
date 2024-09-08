@@ -4,7 +4,7 @@
 	// @ts-ignore
   import News from "../components/News.svelte";
 	// @ts-ignore
-
+  import { FetchMe } from "$lib/utils";
   import Mainprofile from "../components/Mainprofile.svelte";
   import CardClub from "../components/CardClub.svelte";
   // @ts-ignore
@@ -24,55 +24,23 @@
     }
   ];
 
-  let user = 
-    {
-      name: "Mukanov Amir",
-      read: "12",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
-      id: '0'
-    };
+  let user;
   onMount(async () => {
+    const token = localStorage.getItem('token');
     try {
-      const response = await fetch("http://localhost:8000/api/user/me");
-      if (!response.ok) {
-          throw new Error("Failed to fetch user info");
-      }
-      user = await response.json();
-      clubs = await response.json();
+        const res = await fetch(`http://localhost:8000/api/user/me`, {
+            headers: {'Authorization': `Bearer ${token}`},
+        });
+        user = await res.json();
+        console.log(user);
     } catch (err) {
-      // @ts-ignore
-      error = err.message;
+        console.log(err);
     }
-    try {
-      const response = await fetch(`/api/get_user_library?user_id=${user.id}`);
-      if (!response.ok) {
-          throw new Error("Failed to fetch library");
-      }
-      const data = await response.json();
-      books = data.books;
-    } catch (err) {
-      // @ts-ignore
-      alert(err.message);
-    }
-    try {
-      const response = await fetch(`/api/social/my-clubs`);
-      if (!response.ok) {
-          throw new Error("Failed to fetch clubs");
-      }
-      // @ts-ignore
-      const data = await response.json();
-      clubs = data.clubs;
-    } catch (err) {
-      // @ts-ignore
-      alert(err.message);
-    }
-
-
   });
   let clubs = [{
-    name:"Amir's Club",membercount: "12", photo: "https://simg.marwin.kz/media/catalog/product/cache/8d1771fdd19ec2393e47701ba45e606d/m/a/maas_sundefined_dzhundefinedun_1450262_11.png"
+    name:"Amir's Club",membercount: "12", photo:''
   },
-  {name:"Amir's Club",membercount: "12", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s"    
+  {name:"Amir's Club",membercount: "12", photo:  ''  
   },
   ]
 </script>
@@ -81,11 +49,11 @@
   <CreateClub/>
   <hero>
     <News/>
-    <Mainprofile 
+    <!-- <Mainprofeile 
       name={user.name} 
       read={user.read} 
-      photo={user.photo} 
-    />
+      photo={usr.photo} 
+    /> -->
   </hero>  
   <h1>Избранные Книги</h1>
   <div class="card-container">

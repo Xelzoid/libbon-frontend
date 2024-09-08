@@ -1,73 +1,39 @@
-<script lang="js">
+<script>
+  import { onMount } from "svelte";
+  import {FetchMe, FetchClubs, FetchFriends} from '$lib/utils'
+  import { goto } from "$app/navigation";
+
   import BookCard from "../../../components/CardBook.svelte";
   import Mainprofile from "../../../components/Mainprofile.svelte";
   import Button from "../../../components/Button.svelte";
   import ClubCard from "../../../components/CardClub.svelte";
-  import { onMount } from "svelte";
-  // import {FetchMe} from '$lib/utils'
   // @ts-ignore
-  let user, friends = [], clubs = [], error = null;
-  // @ts-ignore
-  user = {
-    id: 0,
-    name: '',
-    booksread: 0,
-    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
-    books: [],
-    friends: [],
-    clubs: []
-  }
-  onMount(async () => {
-    try {
-      const token = localStorage.getItem('token');
-      console.log("adjui");
-      const response = await fetch("http://localhost:8000/api/user/me", {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        },
-      });
-      if (!response.ok) {
-          throw new Error("Failed to fetch user info");
-      }
-      user = await response.json();
-      console.log(user);
-    } catch (err) {
-      // @ts-ignore
-      error = err.message;
-    }
-  });
+  let user, friends = [], clubs = [], error = null, loading = true;
 
-  // onMount(async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:8000/api/social/friends");
-  //     if (!response.ok) {
-  //         throw new Error("Failed to fetch friends");
-  //     }
-  //     const data = await response.json();
-  //     friends = data.friends
-  //   } catch (err) {
-  //     // @ts-ignore
-  //     error = err.message;
-  //   }
-  //   try {
-  //     const response = await fetch("http://localhost:8000/api/my-clubs");
-  //     if (!response.ok) {
-  //         throw new Error("Failed to fetch clubs");
-  //     }
-  //     const data = await response.json();
-  //     clubs = data.friends
-  //   } catch (err) {
-  //     // @ts-ignore
-  //     error = err.message;
-  //   }
-  // });
-  </script>
-  
+  onMount(async () => {
+    const token = localStorage.getItem('token'); // Retrieve the saved token
+    if (!token) {
+      console.error('No token found. Please login first.');
+      goto("/login");
+      return;
+    }
+    user = FetchMe();
+    // @ts-ignore
+    clubs = FetchClubs();
+    // @ts-ignore
+    friends = FetchFriends();
+    loading = false;
+  });
+</script> 
+{#if loading}
+  <p>loading...</p>
+{:else if error}
+<p>Error: check console</p>
+{:else}
   <div class="container">
     <div class="profile-container">
       <Mainprofile 
-        name={user.name} 
-        read={user.boooksread} 
+        name={user.name}
         photo={user.photo} 
       />
     </div>
@@ -106,7 +72,7 @@
       {/each}
     </div>
   </div>
-  
+  {/if}
 <style>
   .container{
     margin-left: 10%;

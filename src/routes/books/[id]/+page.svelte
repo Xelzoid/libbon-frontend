@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import Bookprivate from "../../../components/Bookprivate.svelte";
+  import Bookprivate from "../../../components/PageBook.svelte";
   import Comment from "../../../components/Comment.svelte";
   import AddBook from "../../../components/AddBook.svelte";
   import RemoveBook from "../../../components/RemoveBook.svelte";

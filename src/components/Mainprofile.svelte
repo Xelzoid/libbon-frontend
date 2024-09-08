@@ -18,7 +18,7 @@
         </div>
         <div class="description">
             <h3>{name}</h3>
-            <p>Reading: {read}</p>
+            <p>Score: {read}</p>
         </div>
     </div>
 </a>

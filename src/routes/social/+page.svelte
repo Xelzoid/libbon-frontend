@@ -1,55 +1,18 @@
 <script>
+	import { FetchClubs, FetchFriends, FetchMe } from "$lib/utils";
 	import ClubCard from "../../components/CardClub.svelte";
 	import MiniprofilesForFriends from "../../components/MiniprofilesForFriends.svelte";
-    import Search from "../../components/Search.svelte";
-    import { onMount } from "svelte";
+  import Search from "../../components/Search.svelte";
+  import { onMount } from "svelte";
 
-    // @ts-ignore
-    // @ts-ignore
-    let user = {}, friends = [], clubs = [], error = null;
-    
-    onMount(async () => {
-    try {
-      const response = await fetch("http://localhost:8000/api/user/me");
-      if (!response.ok) {
-        throw new Error("Failed to fetch user info");
-      }
-      user = await response.json();
-    } catch (err) {
-      // @ts-ignore
-      console.log(err.message);
-    }
-    try {
-      const response = await fetch('http://localhost:8000/api/social/my-clubs');
-      if (!response.ok) {
-        throw new Error('Failed to fetch clubs');
-      }
-      const data = await response.json();
-      clubs = data.clubs;
-    } catch (err) {
-      // @ts-ignore
-      console.log(err.message);
-    }
-
-    try {
-      const response = await fetch('http://localhost:8000/api/social/friends');
-      if (!response.ok) {
-        throw new Error('Failed to fetch clubs');
-      }
-      const data = await response.json();
-      friends = data.friends;
-    } catch (err) {
-      // @ts-ignore
-      console.log(err.message);
-    }
-  });
   // @ts-ignore
-  clubs = [];
-  friends = [{
-    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
-    name: 'Amir',
-    read: "12",
-  }];
+  let user, friends = [], clubs = [], error = null;
+  
+  onMount(async () => {
+    user = FetchMe();
+    clubs = FetchClubs();
+    friends = FetchFriends();
+  });
 </script>
 
 

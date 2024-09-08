@@ -1,34 +1,26 @@
 <script>
-    import { onMount } from "svelte";
-    import Club from "../../../components/Club.svelte";
   import { onMount } from "svelte";
-  import Bookprivate from "../../../components/Club.svelte";
-  import Comment from "../../../components/Comment.svelte";
+  import { goto } from "$app/navigation";
+  import { page } from '$app/stores';
 
+  import { FetchClubId, FetchMe } from "$lib/utils"; 
+  import Club from "../../../components/Club.svelte";
+  import PageClub from "../../../components/PageClub.svelte"
+  import Comment from "../../../components/Comment.svelte";
   // @ts-ignore
-  let news = [];
-  // @ts-ignore
-  let error = null;
-  let club;
-  let showCommentForm = false;
-  let newComment = '';
-  let comments = []; 
+  let user, club, showCommentForm = false, newComment = '', comments = [], error = null; 
+  const { clubId } = $page.params;
+  console.log(clubId);
 
   onMount(async () => {
-    try {
-      const response = await fetch("http://localhost:8000/news");
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      club = await response.json();
-    } catch (err) {
-      // @ts-ignore
-      error = err.message;
-    }
+    const token = localStorage.getItem('token');
+    user = FetchMe;
+    club = FetchClubId(clubId);
+    console.log(club);
+    console.log(user);
   });
 
-  club = {title:"Club name", author:"Author", description:"Description", photo:""};
-
+  
   function addComment() {
     if (newComment.trim() === '') {
       return; 
@@ -42,8 +34,4 @@
   }
 </script>
 
-<Bookprivate
-    name={book.title}
-    description={book.description}
-    photo={book.photo}
-/>
+<PageClub></PageClub>
