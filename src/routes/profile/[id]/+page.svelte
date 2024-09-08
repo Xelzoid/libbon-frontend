@@ -10,8 +10,8 @@
   // @ts-ignore
   user = {
     id: 0,
-    name: 'Zangar',
-    booksread: 12,
+    name: '',
+    booksread: 0,
     photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s",
     books: [],
     friends: [],
@@ -19,41 +19,48 @@
   }
   onMount(async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/users/me");
+      const token = localStorage.getItem('token');
+      console.log("adjui");
+      const response = await fetch("http://localhost:8000/api/user/me", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
+      });
       if (!response.ok) {
           throw new Error("Failed to fetch user info");
       }
       user = await response.json();
+      console.log(user);
     } catch (err) {
       // @ts-ignore
       error = err.message;
     }
   });
 
-  onMount(async () => {
-    try {
-      const response = await fetch("http://localhost:8000/api/social/friends");
-      if (!response.ok) {
-          throw new Error("Failed to fetch friends");
-      }
-      const data = await response.json();
-      friends = data.friends
-    } catch (err) {
-      // @ts-ignore
-      error = err.message;
-    }
-    try {
-      const response = await fetch("http://localhost:8000/api/my-clubs");
-      if (!response.ok) {
-          throw new Error("Failed to fetch clubs");
-      }
-      const data = await response.json();
-      clubs = data.friends
-    } catch (err) {
-      // @ts-ignore
-      error = err.message;
-    }
-  });
+  // onMount(async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:8000/api/social/friends");
+  //     if (!response.ok) {
+  //         throw new Error("Failed to fetch friends");
+  //     }
+  //     const data = await response.json();
+  //     friends = data.friends
+  //   } catch (err) {
+  //     // @ts-ignore
+  //     error = err.message;
+  //   }
+  //   try {
+  //     const response = await fetch("http://localhost:8000/api/my-clubs");
+  //     if (!response.ok) {
+  //         throw new Error("Failed to fetch clubs");
+  //     }
+  //     const data = await response.json();
+  //     clubs = data.friends
+  //   } catch (err) {
+  //     // @ts-ignore
+  //     error = err.message;
+  //   }
+  // });
   </script>
   
   <div class="container">
