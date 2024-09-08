@@ -8,18 +8,22 @@
   // let profileUrl = `/profile/${user.id}`;
 </script>
 
+
+
 <div class="header">
   <nav>
-    <img src="logobl.png">
+    <a href="/"><img  src="logobl.png"></a>
     <ul>
       <li><a href="/">Home</a></li>
       <!-- <li><a href={profileUrl}>Profile</a></li> -->
       <li><a href="/social">Social</a></li>
       <li><a href="/catalog/1">Books</a></li>
-      <li><a href="/game/0">Games</a></li>
+      <li><a href="/games">Games</a></li>
     </ul>
   </nav>
 </div>
+
+
 <style>
   img{
     width: 240px;
@@ -51,7 +55,7 @@
     box-sizing: border-box;
     display: flex;
     list-style-type: none;
-    flex-direction: row-reverse;
+    flex-direction: row;
     width: 50%;
 
   }

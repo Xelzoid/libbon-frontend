@@ -7,6 +7,8 @@
   import Club from "../../../components/Club.svelte";
   import PageClub from "../../../components/PageClub.svelte"
   import Comment from "../../../components/Comment.svelte";
+  import Footer from "../../../components/Footer.svelte";
+
   // @ts-ignore
   let user, club, showCommentForm = false, newComment = '', comments = [], error = null; 
   const { clubId } = $page.params;
@@ -35,3 +37,5 @@
 </script>
 
 <PageClub></PageClub>
+
+<Footer/>
