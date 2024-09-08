@@ -1,16 +1,17 @@
 <script>
-    export let name = "";
-    export let author = "";
-    export let description = "";
-    export let photo = "";
+    export let name = "Name", author = 'Author', dop = '1900/01/01', 
+    description = 'Description', picture = '', stars = 0;
+    
 </script>
 
 <div class="container">
-    <img class="book_img" src="{photo}">
+    <img class="book_img" src="{picture}">
     <div class="content">
         <h1>{name}</h1>
         <h3>{author}</h3>
+        <time datetime="{dop}">{dop}</time>
         <p>{description}</p>
+        <p>{stars}</p>
     </div>
 </div>
 

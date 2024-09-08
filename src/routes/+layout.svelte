@@ -1,21 +1,11 @@
 <script>
+	import { FetchMe } from "$lib/utils";
   import { onMount } from "svelte";
-  let user = {
-    friend_id: 0
-  }, error = null;
-  onMount(async () => {
-    try {
-      const response = await fetch("http://localhost:8000/api/user/me");
-      if (!response.ok) {
-          throw new Error("Failed to fetch user info");
-      }
-      user = await response.json();
-    } catch (err) {
-      // @ts-ignore
-      error = err.message;
-    }
-  });
-  let profileUrl = `/profile/${user.friend_id}`;
+  let user, error = null;
+  // onMount(async () => {
+  //   user = await FetchMe();
+  // });
+  // let profileUrl = `/profile/${user.id}`;
 </script>
 
 
@@ -25,7 +15,7 @@
     <a href="/"><img  src="logobl.png"></a>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href={profileUrl}>Profile</a></li>
+      <!-- <li><a href={profileUrl}>Profile</a></li> -->
       <li><a href="/social">Social</a></li>
       <li><a href="/catalog/1">Books</a></li>
       <li><a href="/games">Games</a></li>
