@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-
+  import CardBook from '../../../components/CardBook.svelte';
   let books = [];
   let error = null;
 
@@ -27,16 +27,10 @@
     <ul>
       {#each books as book (book.id)}
         <li>
-          <h3>{book.name}</h3>
-          <p>{book.description}</p>
-          <p>Published on: {book.date_of_publication}</p>
-          {#if book.picture}
-            <img
-              src={`data:image/png;base64,${book.picture}`}
-              alt={book.name}
-              style="width: 100px; height: auto;"
-            />
-          {/if}
+          <CardBook 
+          name={book.name}
+          author={book.description}
+          photo={' '}></CardBook>
         </li>
       {/each}
     </ul>
