@@ -52,6 +52,7 @@
     margin-left: -60px;
   }
   li {
+    background-color: #DBD3C6;
     text-decoration: none;
     list-style-type: none;
     width: 200px;
