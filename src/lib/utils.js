@@ -1,5 +1,4 @@
 // @ts-ignore
-import axios from 'axios';
 export async function FetchMe() {
     const token = localStorage.getItem('token');
     let user = {};
