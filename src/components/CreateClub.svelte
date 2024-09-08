@@ -1,7 +1,6 @@
 <script>
   let name = '';
   let error = '';
-
   async function CreateClub() {
     const formBody = new URLSearchParams();
     formBody.append("name", name)
@@ -11,13 +10,14 @@
       const response = await fetch("http://localhost:8000/api/social/create-club", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
           "Authorization": `Bearer ${token}`
         },
-        // body: JSON.stringify({
-        //   name
-        // })
-        body: formBody.toString()
+        body: JSON.stringify({
+          name: name,
+          description: "test",
+          is_private: true
+        })
       });
       
       if (!response.ok) {

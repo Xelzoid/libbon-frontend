@@ -9,11 +9,11 @@
   // @ts-ignore
   let user, friends = [], clubs = [], error = null;
   
-  onMount(async () => {
-    user = FetchMe();
-    clubs = FetchClubs();
-    friends = FetchFriends();
-  });
+//   onMount(async () => {
+//     user = FetchMe();
+//     clubs = FetchClubs();
+//     friends = FetchFriends();
+//   });
 </script>
 
 <div class="container">
