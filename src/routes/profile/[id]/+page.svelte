@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import {FetchMe, FetchClubs, FetchFriends} from '$lib/utils'
+  import {FetchMe, FetchClubs, FetchFriends, FetchUser} from '$lib/utils'
   import { goto } from "$app/navigation";
 
   import BookCard from "../../../components/CardBook.svelte";
@@ -10,19 +10,15 @@
   import Footer from "../../../components/Footer.svelte";
   // @ts-ignore
   let user, friends = [], clubs = [], error = null, loading = true;
-
+  import { page } from '$app/stores';
+  $: id = $page.params.id;
   onMount(async () => {
     const token = localStorage.getItem('token'); // Retrieve the saved token
-    if (!token) {
-      console.error('No token found. Please login first.');
-      goto("/login");
-      return;
-    }
-    user = FetchMe();
+    user = FetchUser(id);
     // @ts-ignore
-    clubs = FetchClubs();
+    // clubs = FetchClubs();
     // @ts-ignore
-    friends = FetchFriends();
+    // friends = FetchFriends();
     loading = false;
   });
 </script> 

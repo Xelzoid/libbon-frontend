@@ -16,6 +16,22 @@ export async function FetchMe() {
     }
     return user
 }
+export async function FetchUser(id) {
+    const token = localStorage.getItem('token');
+    let user = {};
+    try {
+        const res = await fetch(`http://localhost:8000/api/person/user-info?user_id=${id}`, {
+        });
+        if (!res.ok) {
+            throw new Error('Failed to fetch user');
+        }
+        user = await res.json();
+    } catch (err) {
+        // @ts-ignore
+        console.error(err.message);
+    }
+    return user
+}
 export async function FetchClubs() {
     const token = localStorage.getItem('token');
     let clubs = [];
@@ -51,11 +67,16 @@ export async function FetchFriends() {
     return friends
 }
 export async function FetchClubId(id) {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    console.log(id);
     let club;
     try {
-        const response = await fetch(`http://localhost:8000/api/social/club-info?club_id=${id}`);
+        const response = await fetch(`http://localhost:8000/api/social/club-info/${id}`, {
+            headers: {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json'}
+        });
         if (!response.ok) {
-        throw new Error("Failed to fetch data");
+            throw new Error("Failed to fetch data");
         }
         club = await response.json();
     } catch (err) {
@@ -78,17 +99,128 @@ export async function FetchClubId(id) {
 //     }
 //     return club
 // };
-export async function FetchClubInvites(id) {
-    let club;
+// src/routes/clubs/[club_id]/change.js
+export async function changeClub(club_id, description = null, isprivate = null, token) {
     try {
-        const response = await fetch(`http://localhost:8000/api/social/club-info?club_id=${id}`);
+        const response = await fetch('http://localhost:8000/api/social/clubs/change', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                club_id: club_id,
+                description: description,
+                isprivate: isprivate
+            })
+        });
+
         if (!response.ok) {
-        throw new Error("Failed to fetch data");
+            const error = await response.json();
+            throw new Error(error.detail || 'Something went wrong');
         }
-        club = await response.json();
+
+        return await response.json();
     } catch (err) {
-        // @ts-ignore
-        console.error(err.message)
+        console.error(err.message);
+        throw err;
     }
-    return club
-};
+}
+export async function inviteToClub(club_id, user_id) {
+    try {
+        const response = await fetch('http://localhost:8000/api/social/clubs/invite_user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                club_id: club_id,
+                user_id: user_id
+            })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Something went wrong');
+        }
+
+        return await response.json();
+    } catch (err) {
+        console.error(err.message);
+        throw err;
+    }
+}
+export async function delInviteToClub(club_id, user_id) {
+    try {
+        const response = await fetch('http://localhost:8000/api/social/clubs/delete_invation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                club_id: club_id,
+                user_id: user_id
+            })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Something went wrong');
+        }
+
+        return await response.json();
+    } catch (err) {
+        console.error(err.message);
+        throw err;
+    }
+}
+export async function acceptInvite(club_id) {
+    try {
+        const response = await fetch('http://localhost:8000/api/social/clubs/accept_invation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                club_id: club_id,
+            })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Something went wrong');
+        }
+
+        return await response.json();
+    } catch (err) {
+        console.error(err.message);
+        throw err;
+    }
+}
+export async function declineInvite(club_id) {
+    try {
+        const response = await fetch('http://localhost:8000/api/social/clubs/decline_invation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                club_id: club_id,
+            })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Something went wrong');
+        }
+
+        return await response.json();
+    } catch (err) {
+        console.error(err.message);
+        throw err;
+    }
+}
