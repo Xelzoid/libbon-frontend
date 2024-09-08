@@ -1,4 +1,5 @@
 <script>
+	import { FetchUser } from "$lib/utils";
 	import Mainprofile from "./Mainprofile.svelte";
 
     export let name = "Name", description = 'Description', picture = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s',
@@ -15,14 +16,15 @@
     name: 'Amir',
     surname: 'Amirovich', score: 34,}
     ];
+    console.log(FetchUser(owner))
 </script>
 
 <div class="container">
-    <img class="club_img" src="{picture}">
+    <img class="club_img" src="">
     <div class="content">
         <h1>{name}</h1>
         <p>{description}</p>
-        <h3>{owner}</h3>
+        <h3>{FetchUser(owner).name}</h3>
         <ul>
         <li>
             {#each users as user}

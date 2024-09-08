@@ -10,28 +10,26 @@
   import Footer from "../../../components/Footer.svelte";
   // @ts-ignore
   let user, friends = [], clubs = [], error = null, loading = true;
+  let invations = [];
   import { page } from '$app/stores';
   $: id = $page.params.id;
   onMount(async () => {
     const token = localStorage.getItem('token'); // Retrieve the saved token
-    user = FetchUser(id);
-    // @ts-ignore
-    // clubs = FetchClubs();
-    // @ts-ignore
-    // friends = FetchFriends();
+    user = FetchUser(id, token);
     loading = false;
+    if (user.invations != null) {
+      invations = user.invations.split('.').map(id => parseInt(id, 10));
+    }
   });
 </script> 
 {#if loading}
   <p>loading...</p>
-{:else if error}
-<p>Error: check console</p>
 {:else}
   <div class="container">
     <div class="profile-container">
       <Mainprofile 
         name={user.name}
-        photo={user.photo} 
+        photo={' '} 
       />
     </div>
 
@@ -41,32 +39,32 @@
       <Button label="Clubs"/>
     </div>
     <div class="gr-container">
-      {#each user.books as book} 
+      <!-- {#each user.books as book} 
         <BookCard 
           title={book.title} 
           author={book.author} 
           coverImage={book.coverImage} 
         />
-      {/each}
+      {/each} -->
     </div>
 
     <div class="gr-container">
-      {#each friends as friend} 
+      <!-- {#each user.friend_ids as friend} 
         <Mainprofile 
-          name={friend.name} 
-          read={friend.read} 
-          photo={friend.coverImage} 
+          name={FetchUser(friend).name} 
+          read={FetchUser(friend).read} 
+          photo={FetchUser(friend).coverImage} 
         />
-      {/each}
+      {/each} -->
     </div>
     <div class="gr-container">
-      {#each clubs as club} 
+      <!-- {#each user.clubs as club}
         <ClubCard 
           name={club.name} 
           membercount={club.member} 
           photo={club.photo} 
         />
-      {/each}
+      {/each} -->
     </div>
   </div>
   {/if}

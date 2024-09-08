@@ -41,7 +41,7 @@
 <div class="container">
   <hero>
     <Search/>
-    <Catalog/>
+    <!-- <Catalog/> -->
   </hero>  
   <div class="card-container">
     {#each books as book}

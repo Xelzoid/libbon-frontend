@@ -16,22 +16,29 @@ export async function FetchMe() {
     }
     return user
 }
-export async function FetchUser(id) {
-    const token = localStorage.getItem('token');
+export async function FetchUser(id, token) {
     let user = {};
     try {
-        const res = await fetch(`http://localhost:8000/api/person/user-info?user_id=${id}`, {
+        const response = await fetch(`http://localhost:8000/api/person/user-info?user_id=${id}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            }
         });
-        if (!res.ok) {
+
+        if (!response.ok) {
             throw new Error('Failed to fetch user');
         }
-        user = await res.json();
+
+        user = await response.json();
+        console.log(user);
     } catch (err) {
-        // @ts-ignore
-        console.error(err.message);
+        console.error(err.message); 
     }
-    return user
+    return user;
 }
+
 export async function FetchClubs() {
     const token = localStorage.getItem('token');
     let clubs = [];
@@ -66,8 +73,7 @@ export async function FetchFriends() {
     }
     return friends
 }
-export async function FetchClubId(id) {
-    const token = localStorage.getItem('token');
+export async function FetchClubId(id, token) {
     console.log(token);
     console.log(id);
     let club;
