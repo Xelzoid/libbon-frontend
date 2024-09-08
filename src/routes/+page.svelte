@@ -4,7 +4,6 @@
 	// @ts-ignore
   import News from "../components/News.svelte";
 	// @ts-ignore
-
   import Mainprofile from "../components/Mainprofile.svelte";
   import CardClub from "../components/CardClub.svelte";
 
