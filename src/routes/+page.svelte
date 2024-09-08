@@ -10,6 +10,7 @@
 
   import { onMount } from "svelte";
 	import Footer from "../components/Footer.svelte";
+	import Slide from "../components/Slide.svelte";
     // @ts-ignore
     let books = [{
       title: "The Great Gatsby",
@@ -43,18 +44,23 @@
   },
   ]
 </script>
-
+<div class="mainsection">
+  <div class="container">
+    <CreateClub/>
+    <hero>
+      <div>
+      <Slide/>
+    </div>
+      <Mainprofile 
+        name={user.name} 
+        read={user.read} 
+        photo={user.photo} 
+      />
+    </hero>  
+    <News/>
+  </div>
+</div>
 <div class="container">
-  <CreateClub/>
-  <hero>
-    <Mainprofile 
-      name={user.name} 
-      read={user.read} 
-      photo={user.photo} 
-    /> -->
-  </hero>  
-  <News/>
-
   <h1>Избранные Книги</h1>
   <div class="card-container">
     {#each books as book}
@@ -80,6 +86,13 @@
 
 
 <style>
+  .mainsection{
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    padding-bottom: 30px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+    padding-top: 20px;
+  }
   .container{
     max-width: 1100px;
     margin: auto;
