@@ -24,7 +24,7 @@
     }
   ];
 
-  let user, loading = true;
+  let user, loading = false;
   onMount(async () => {
     const token = localStorage.getItem('token');
     user = FetchMe();
@@ -34,13 +34,11 @@
     name:"Amir's Club",membercount: "12", photo:''
   },
   {name:"Amir's Club",membercount: "12", photo:  ''  
-  },
-  ]
+}]
+  user = { photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIkYXYpe5vuWCc8Jw0FtGtLo3x_-_LI2btEA&s", name: 'Amir', read: "12"}
 </script>
 {#if loading}
 <p>Loading </p>
-{:else if error}
-<p>Error: check console</p>
 {:else}
 <div class="mainsection">
 <div class="container">
