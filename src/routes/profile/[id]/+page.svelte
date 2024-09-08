@@ -8,7 +8,6 @@
   import Button from "../../../components/Button.svelte";
   import ClubCard from "../../../components/CardClub.svelte";
   import Footer from "../../../components/Footer.svelte";
-  import { onMount } from "svelte";
   // import {FetchMe} from '$lib/utils'
   // @ts-ignore
   let user, friends = [], clubs = [], error = null, loading = true;
