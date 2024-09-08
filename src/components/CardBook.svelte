@@ -19,7 +19,7 @@
     cursor: pointer;
     width: 200px;
     height: 300px;
-    background-color: #DBD3C6;
+    background-color: #ebe3d5;
     margin-right: 35px;
     box-shadow: 15px 15px 20px 1px rgba(0, 0, 0, 0.35);
     border-radius: 15px;

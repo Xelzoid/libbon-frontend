@@ -43,12 +43,12 @@ const socialLinks = {
 
 <style>
     footer {
-    background-color: #DBD3C6;
+    background-color: #ebe3d5;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 180px;
 }
 
 .footer-container {

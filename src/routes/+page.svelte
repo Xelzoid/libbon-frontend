@@ -42,6 +42,7 @@
 {:else if error}
 <p>Error: check console</p>
 {:else}
+<div class="mainsection">
 <div class="container">
   <CreateClub/>
   <hero>
@@ -74,13 +75,19 @@
     {/each}
   </div>
 </div>
+</div>
 {/if}
 <Footer/>
 
 
 <style>
+  .book_section{
+    background-color:#f2f2f2;
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
   .mainsection{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #6969B3;
     z-index: -1;
     padding-bottom: 30px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
