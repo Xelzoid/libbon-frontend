@@ -2,7 +2,7 @@
 	import { FetchClubs, FetchFriends, FetchMe } from "$lib/utils";
 	import ClubCard from "../../components/CardClub.svelte";
 	import MiniprofilesForFriends from "../../components/MiniprofilesForFriends.svelte";
-  import Footer from "../../components/Footer.svelte";
+    import Footer from "../../components/Footer.svelte";
     import Search from "../../components/Search.svelte";
     import { onMount } from "svelte";
 

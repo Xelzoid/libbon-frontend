@@ -14,11 +14,11 @@
   
   <style>
     .title2 {
-  font-size: 35px; /* Увеличиваем размер текста заголовка */
+  font-size: 35px; 
   font-weight: bold;
 }
 .author2 {
-  font-size: 30px; /* Увеличиваем размер текста автора */
+  font-size: 30px;
 }
     .card_container2 {
       cursor: pointer;

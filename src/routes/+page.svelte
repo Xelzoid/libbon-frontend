@@ -44,6 +44,8 @@
   <div class="container">
     <CreateClub/>
     <hero>
+      <div>
+      <Slide/></div>
       <Mainprofile 
         name={user.name} 
         read={user.read} 

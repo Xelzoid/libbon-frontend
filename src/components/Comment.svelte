@@ -37,7 +37,7 @@
         font-size: 15px;
         box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.3);
         height: auto;
-        background-color: bisque;
+        background-color: #ebe3d5;
         padding: 0px 5px 5px 5px;
 
     }
