@@ -11,7 +11,7 @@
       return;
     }
     try {
-      const response = await fetch('/api/social/friends/add', {
+      const response = await fetch('http://localhost:8000/api/social/friends/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -11,7 +11,7 @@
       return;
     }
     try {
-      const response = await fetch('/api/add_book_to_library', {
+      const response = await fetch('http://localhost:8000/api/add_book_to_library', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

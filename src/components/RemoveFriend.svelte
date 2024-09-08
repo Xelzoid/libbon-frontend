@@ -10,7 +10,7 @@
         return;
     }
     try {
-        const response = await fetch('/api/social/friends/remove', {
+        const response = await fetch('http://localhost:8000/api/social/friends/remove', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -24,18 +24,11 @@
     }
   ];
 
-  let user;
+  let user, loading = true;
   onMount(async () => {
     const token = localStorage.getItem('token');
-    try {
-        const res = await fetch(`http://localhost:8000/api/user/me`, {
-            headers: {'Authorization': `Bearer ${token}`},
-        });
-        user = await res.json();
-        console.log(user);
-    } catch (err) {
-        console.log(err);
-    }
+    user = FetchMe();
+    loading = false;
   });
   let clubs = [{
     name:"Amir's Club",membercount: "12", photo:''
@@ -44,23 +37,22 @@
   },
   ]
 </script>
-<div class="mainsection">
-  <div class="container">
-    <CreateClub/>
-    <hero>
-      <div>
-      <Slide/>
-    </div>
-      <Mainprofile 
-        name={user.name} 
-        read={user.read} 
-        photo={user.photo} 
-      />
-    </hero>  
-    <News/>
-  </div>
-</div>
+{#if loading}
+<p>Loading </p>
+{:else if error}
+<p>Error: check console</p>
+{:else}
 <div class="container">
+  <CreateClub/>
+  <hero>
+    <Mainprofile 
+      name={user.name} 
+      read={user.read} 
+      photo={user.photo} 
+    />
+  </hero>  
+  <News/>
+
   <h1>Избранные Книги</h1>
   <div class="card-container">
     {#each books as book}
@@ -82,6 +74,7 @@
     {/each}
   </div>
 </div>
+{/if}
 <Footer/>
 
 

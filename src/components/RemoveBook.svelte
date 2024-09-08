@@ -10,7 +10,7 @@ async function removeBookFromLibrary(bookId) {
     }
 
     try {
-        const response = await fetch('/api/remove_from_library', {
+        const response = await fetch('http://localhost:8000/api/remove_from_library', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
